@@ -1,0 +1,91 @@
+body{
+    margin:0; 
+    height:100%;
+}
+
+#pageBg{
+    background-color: white;
+    background-image :linear-gradient(45deg,  rgb(12, 245, 116,0.4), rgb(58, 190, 255,0.4),rgb(239, 171, 255,0.4), rgb(236, 5, 142,0.4), rgb(255, 190, 11,0.4));
+    background-size: 300%;
+    background-position:center;
+    height:100%;
+    animation: bg-animation 20s infinite alternate;
+}
+
+@keyframes bg-animation {
+    0% {background-position: left}
+    100% {background-position: right}
+}
+
+.center_container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.center_inner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#logo{
+    max-width: 500px; margin: 0; margin-bottom: 1em;
+    font-size: 40px;
+    font-family: Acherus Grotesque Regular, sans-serif;
+    color:white;
+}
+
+#socials{
+    text-align: center;
+}
+
+.social{
+    width:35px;
+    vertical-align: middle;
+    padding:6px;
+    fill:white;
+    transition: fill 0.3s;
+        
+}
+
+a{
+    text-decoration: none;
+    font-family: Acherus Grotesque Regular, sans-serif;
+    
+}
+
+.social:hover, a:focus{
+    fill: lightgray;
+    
+}
+
+#emaillink{
+    text-decoration: none;
+    color:white;
+    transition: color 0.3s;
+}
+
+#emaillink:hover{
+    color:lightgray;
+}
+
+.project{
+    text-align: center;
+    background-color: white;
+    color:black;
+    margin-bottom: 1em;
+    padding:1em;
+    width:400px;
+    transition: background-color 0.3s;
+}
+
+.project:hover, .project:focus{
+    background-color: lightgray;
+}
+
+.project a{
+    color: white;
+}
