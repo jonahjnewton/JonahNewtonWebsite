@@ -57,7 +57,7 @@ a{
     
 }
 
-.social:hover, a:focus{
+.social:hover, .social:focus{
     fill: lightgray;
     
 }
@@ -68,7 +68,7 @@ a{
     transition: color 0.3s;
 }
 
-#emaillink:hover{
+#emaillink:hover, #emaillink:focus{
     color:lightgray;
 }
 
