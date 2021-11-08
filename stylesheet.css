@@ -1,4 +1,5 @@
 body{
+    font-family: Acherus Grotesque Regular, sans-serif; 
     margin:0; 
     height:100%;
 }
@@ -10,10 +11,14 @@ body{
     animation: location-animation 1s infinite;
 }
 
+#mapDiv{
+    background-color: black;
+}
+
 @keyframes location-animation {
     from {
         opacity: 0;
-        r: 3%;
+        r: 6%;
     }
     to {
         opacity:100;
@@ -22,7 +27,6 @@ body{
 }
 
 h1, h2{
-    font-family: Acherus Grotesque Regular, sans-serif;
     text-align: center;
 }
 
@@ -60,36 +64,49 @@ h1, h2{
     }
 
     #header #logo{
-        font-family: Acherus Grotesque Regular, sans-serif;
         text-align: center;
         font-size:1em;    
     }
 
     #header #socials{
         position: absolute;
-    top: 50%;
-    right:5%;
-    transform: translateY(-50%);
+        top: 50%;
+        right:5%;
+        transform: translateY(-50%);
 
     }
 
-    #header .social{
+    .social{
         width:35px;
         vertical-align: middle;
         padding:6px;
-        fill:black;
-        transition: fill 0.3s;
-            
+        transition: fill 0.3s;  
     }
 
-    #header a{
-        text-decoration: none;
-        font-family: Acherus Grotesque Regular, sans-serif;
-        
-    }
-
-    #header .social:hover, #header .social:focus{
+    .social:hover, .social:focus{
         fill: lightgray;
+    }
+
+    #leftcolumn .social, #rightcolumn .social{
+        fill: white;
+    }
+
+    #leftcolumn .social:hover, #leftcolumn .social:focus, #rightcolumn .social:hover, #rightcolumn .social:focus{
+        fill: lightgray;
+    }
+
+    #contact .emaillink{
+        text-decoration: none;
+        color:black;
+        transition: color 0.3s;
+    }
+
+    #contact .emaillink:hover, #contact .emaillink:focus{
+        color:lightgray;
+    }
+
+    a{
+        text-decoration: none;
     }
 
     /*LEFT COLUMN*/
@@ -111,41 +128,20 @@ h1, h2{
     #leftcolumn #logo{
         max-width: 500px; margin: 0; margin-bottom: 1em;
         font-size: 40px;
-        font-family: Acherus Grotesque Regular, sans-serif;
         color:white;
     }
 
-    #leftcolumn #socials{
+    #leftcolumn #socials, #rightcolumn #socials, #contact #socials{
         text-align: center;
     }
 
-    #leftcolumn .social{
-        width:35px;
-        vertical-align: middle;
-        padding:6px;
-        fill:white;
-        transition: fill 0.3s;
-            
-    }
-
-    #leftcolumn a{
-        text-decoration: none;
-        font-family: Acherus Grotesque Regular, sans-serif;
-        
-    }
-
-    #leftcolumn .social:hover, #leftcolumn .social:focus{
-        fill: lightgray;
-        
-    }
-
-    #leftcolumn #emaillink{
+    .emaillink{
         text-decoration: none;
         color:white;
         transition: color 0.3s;
     }
 
-    #leftcolumn #emaillink:hover, #leftcolumn #emaillink:focus{
+    .emaillink:hover, .emaillink:focus{
         color:lightgray;
     }
 
@@ -161,14 +157,6 @@ h1, h2{
 
     #leftcolumn .project:hover, #leftcolumn .project:focus{
         background-color: lightgray;
-    }
-
-    #leftcolumn .project a{
-        color: white;
-    }
-
-    #leftcolumn a{
-        text-decoration: none;
     }
 
     /*RIGHT COLUMN*/
@@ -215,39 +203,6 @@ h1, h2{
         margin-bottom: 1vw;
     }
 
-    #rightcolumn #socials{
-        text-align: center;
-    }
-
-    #rightcolumn .social{
-        width:35px;
-        vertical-align: middle;
-        padding:6px;
-        transition: fill 0.3s;
-    }
-
-    #rightcolumn a{
-        fill:white;
-        
-        text-decoration: none;
-        
-    }
-
-    #rightcolumn a :hover, #rightcolumn a :focus{
-        fill: lightgray;
-    }
-
-    #rightcolumn #emaillink{
-        font-family: Acherus Grotesque Regular, sans-serif; 
-        text-decoration: none;
-        color:white;
-        transition: color 0.3s;
-    }
-
-    #rightcolumn #emaillink:hover, #rightcolumn #emaillink:focus{
-        color:lightgray;
-    }
-
 
 /* DESKTOP */
 @media only screen and (min-width: 768px){
@@ -264,205 +219,8 @@ h1, h2{
         display:flex;
     }
 
-    .center_container{
-        position: relative;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%)
-    }
-
-    .center_inner{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
     #header #logo{
-        font-family: Acherus Grotesque Regular, sans-serif;
         text-align: center;
         font-size:1.2em;    
-    }
-
-    #header #socials{
-        position: absolute;
-    top: 50%;
-    right:5%;
-    transform: translateY(-50%);
-
-    }
-
-    #header .social{
-        width:35px;
-        vertical-align: middle;
-        padding:6px;
-        fill:black;
-        transition: fill 0.3s;
-            
-    }
-
-    #header a{
-        text-decoration: none;
-        font-family: Acherus Grotesque Regular, sans-serif;
-        
-    }
-
-    #header .social:hover, #header .social:focus{
-        fill: lightgray;
-    }
-
-    /*LEFT COLUMN*/
-
-    #leftPageBg{
-        background-color: white;
-        background-image :linear-gradient(45deg,  rgb(12, 245, 116,0.4), rgb(58, 190, 255,0.4),rgb(239, 171, 255,0.4), rgb(236, 5, 142,0.4), rgb(255, 190, 11,0.4));
-        background-size: 300%;
-        background-position:center;
-        height:100vh;
-        animation: bg-animation 20s infinite alternate;
-    }
-
-    @keyframes bg-animation {
-        0% {background-position: left}
-        100% {background-position: right}
-    }
-
-    #leftcolumn #logo{
-        max-width: 500px; margin: 0; margin-bottom: 1em;
-        font-size: 40px;
-        font-family: Acherus Grotesque Regular, sans-serif;
-        color:white;
-    }
-
-    #leftcolumn #socials{
-        text-align: center;
-    }
-
-    #leftcolumn .social{
-        width:35px;
-        vertical-align: middle;
-        padding:6px;
-        fill:white;
-        transition: fill 0.3s;
-            
-    }
-
-    #leftcolumn a{
-        text-decoration: none;
-        font-family: Acherus Grotesque Regular, sans-serif;
-        
-    }
-
-    #leftcolumn .social:hover, #leftcolumn .social:focus{
-        fill: lightgray;
-        
-    }
-
-    #leftcolumn #emaillink{
-        text-decoration: none;
-        color:white;
-        transition: color 0.3s;
-    }
-
-    #leftcolumn #emaillink:hover, #leftcolumn #emaillink:focus{
-        color:lightgray;
-    }
-
-    #leftcolumn .project{
-        text-align: center;
-        background-color: white;
-        color:black;
-        margin-bottom: 1em;
-        padding:1em;
-        width:300px;
-        transition: background-color 0.3s;
-    }
-
-    #leftcolumn .project:hover, #leftcolumn .project:focus{
-        background-color: lightgray;
-    }
-
-    #leftcolumn .project a{
-        color: white;
-    }
-
-    #leftcolumn a{
-        text-decoration: none;
-    }
-
-    /*RIGHT COLUMN*/
-
-    #rightPageBg{
-        background-image: url('images/texturefabrik_dust-01.png');
-        background-position:center;
-        background-size:cover; height:100%
-    }
-
-    #rightcolumn #logo{
-        max-width: 300px; margin: 0; margin-bottom: 1em;
-    }
-
-    #rightcolumn #mc_embed_signup{
-        font-size: 30px;
-    }
-
-    #rightcolumn #mc-embedded-subscribe{
-        font-family: Acherus Grotesque Regular, sans-serif; 
-        background-color: white;
-        border: none;
-        color: black;
-        padding: 16px 32px;
-        text-align: center;
-        font-size: 16px;
-        margin: 4px 2px;
-        transition: 0.3s;
-    }
-
-    #rightcolumn #mc-embedded-subscribe:hover, #rightcolumn #mc-embedded-subscribe:focus{
-        background-color: lightgray;
-    }
-
-    #rightcolumn #mc_embed_signup_scroll{
-        text-align: center; color:white; padding:1vw;
-    }
-
-    #rightcolumn #mce-FNAME, #rightcolumn #mce-EMAIL{
-            margin-top: 1vw; width:20em  ; height:2em; font-family: Acherus Grotesque Regular, sans-serif;
-    }
-
-    #rightcolumn #mce-EMAIL{
-        margin-bottom: 1vw;
-    }
-
-    #rightcolumn #socials{
-        text-align: center;
-    }
-
-    #rightcolumn .social{
-        width:35px;
-        vertical-align: middle;
-        padding:6px;
-        transition: fill 0.3s;
-    }
-
-    #rightcolumn a{
-        fill:white;
-        
-        text-decoration: none;
-        
-    }
-
-    #rightcolumn a :hover, #rightcolumn a :focus{
-        fill: lightgray;
-    }
-
-    #rightcolumn #emaillink{
-        font-family: Acherus Grotesque Regular, sans-serif; 
-        text-decoration: none;
-        color:white;
-        transition: color 0.3s;
-    }
-
-    #rightcolumn #emaillink:hover, #rightcolumn #emaillink:focus{
-        color:lightgray;
     }
 }
