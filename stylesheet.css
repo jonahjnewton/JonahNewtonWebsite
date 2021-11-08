@@ -5,6 +5,26 @@ body{
 
 /* MOBILE */
 
+#locationCircle{
+    fill:red;
+    animation: location-animation 1s infinite;
+}
+
+@keyframes location-animation {
+    from {
+        opacity: 0;
+        r: 3%;
+    }
+    to {
+        opacity:100;
+        r: 2%;
+    }
+}
+
+h1, h2{
+    font-family: Acherus Grotesque Regular, sans-serif;
+    text-align: center;
+}
 
     #leftcolumn .column, #rightcolumn .column{
         display:flex;
@@ -160,7 +180,7 @@ body{
     }
 
     #rightcolumn #logo{
-        max-width: 300px; margin: 0; margin-bottom: 3em;
+        max-width: 300px; margin: 0; margin-bottom: 1em;
     }
 
     #rightcolumn #mc_embed_signup{
@@ -378,7 +398,7 @@ body{
     }
 
     #rightcolumn #logo{
-        max-width: 300px; margin: 0; margin-bottom: 3em;
+        max-width: 300px; margin: 0; margin-bottom: 1em;
     }
 
     #rightcolumn #mc_embed_signup{
