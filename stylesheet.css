@@ -11,6 +11,10 @@ body{
     animation: location-animation 1s infinite;
 }
 
+#hide{
+    display:none;
+}
+
 #mapDiv{
     background-color: black;
 }
@@ -206,6 +210,10 @@ h1, h2{
 
 /* DESKTOP */
 @media only screen and (min-width: 768px){
+    #hide{
+        display:flex;
+    }
+
     .column{
         flex:50%;
         position: relative;
