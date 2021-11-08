@@ -121,6 +121,7 @@ h1, h2{
         background-size: 300%;
         background-position:center;
         height:100vh;
+        min-height:550px;
         animation: bg-animation 20s infinite alternate;
     }
 
@@ -168,7 +169,9 @@ h1, h2{
     #rightPageBg{
         background-image: url('images/texturefabrik_dust-01.png');
         background-position:center;
-        background-size:cover; height:100vh
+        background-size:cover; height:100vh;
+        min-height:550px;
+        
     }
 
     #rightcolumn #logo{
