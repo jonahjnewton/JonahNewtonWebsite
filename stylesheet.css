@@ -3,89 +3,446 @@ body{
     height:100%;
 }
 
-#pageBg{
-    background-color: white;
-    background-image :linear-gradient(45deg,  rgb(12, 245, 116,0.4), rgb(58, 190, 255,0.4),rgb(239, 171, 255,0.4), rgb(236, 5, 142,0.4), rgb(255, 190, 11,0.4));
-    background-size: 300%;
-    background-position:center;
-    height:100%;
-    animation: bg-animation 20s infinite alternate;
-}
+/* DESKTOP */
+@media only screen and (min-width: 769px){
+    .column{
+        flex:50%;
+        position: relative;
+    }
 
-@keyframes bg-animation {
-    0% {background-position: left}
-    100% {background-position: right}
-}
+    #header .column{
+        flex:33%;
+    }
 
-.center_container{
-    position: absolute;
+    .row{
+        display:flex;
+    }
+
+    .center_container{
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%)
+    }
+
+    .center_inner{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #header #logo{
+        font-family: Acherus Grotesque Regular, sans-serif;
+        text-align: center;
+        font-size:1.2em;    
+    }
+
+    #header #socials{
+        position: absolute;
     top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
-}
+    right:5%;
+    transform: translateY(-50%);
 
-.center_inner{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    }
 
-#logo{
-    max-width: 500px; margin: 0; margin-bottom: 1em;
-    font-size: 40px;
-    font-family: Acherus Grotesque Regular, sans-serif;
-    color:white;
-}
+    #header .social{
+        width:35px;
+        vertical-align: middle;
+        padding:6px;
+        fill:black;
+        transition: fill 0.3s;
+            
+    }
 
-#socials{
-    text-align: center;
-}
-
-.social{
-    width:35px;
-    vertical-align: middle;
-    padding:6px;
-    fill:white;
-    transition: fill 0.3s;
+    #header a{
+        text-decoration: none;
+        font-family: Acherus Grotesque Regular, sans-serif;
         
+    }
+
+    #header .social:hover, #header .social:focus{
+        fill: lightgray;
+    }
+
+    /*LEFT COLUMN*/
+
+    #leftPageBg{
+        background-color: white;
+        background-image :linear-gradient(45deg,  rgb(12, 245, 116,0.4), rgb(58, 190, 255,0.4),rgb(239, 171, 255,0.4), rgb(236, 5, 142,0.4), rgb(255, 190, 11,0.4));
+        background-size: 300%;
+        background-position:center;
+        height:100vh;
+        animation: bg-animation 20s infinite alternate;
+    }
+
+    @keyframes bg-animation {
+        0% {background-position: left}
+        100% {background-position: right}
+    }
+
+    #leftcolumn #logo{
+        max-width: 500px; margin: 0; margin-bottom: 1em;
+        font-size: 40px;
+        font-family: Acherus Grotesque Regular, sans-serif;
+        color:white;
+    }
+
+    #leftcolumn #socials{
+        text-align: center;
+    }
+
+    #leftcolumn .social{
+        width:35px;
+        vertical-align: middle;
+        padding:6px;
+        fill:white;
+        transition: fill 0.3s;
+            
+    }
+
+    #leftcolumn a{
+        text-decoration: none;
+        font-family: Acherus Grotesque Regular, sans-serif;
+        
+    }
+
+    #leftcolumn .social:hover, #leftcolumn .social:focus{
+        fill: lightgray;
+        
+    }
+
+    #leftcolumn #emaillink{
+        text-decoration: none;
+        color:white;
+        transition: color 0.3s;
+    }
+
+    #leftcolumn #emaillink:hover, #leftcolumn #emaillink:focus{
+        color:lightgray;
+    }
+
+    #leftcolumn .project{
+        text-align: center;
+        background-color: white;
+        color:black;
+        margin-bottom: 1em;
+        padding:1em;
+        width:400px;
+        transition: background-color 0.3s;
+    }
+
+    #leftcolumn .project:hover, #leftcolumn .project:focus{
+        background-color: lightgray;
+    }
+
+    #leftcolumn .project a{
+        color: white;
+    }
+
+    #leftcolumn a{
+        text-decoration: none;
+    }
+
+    /*RIGHT COLUMN*/
+
+    #rightPageBg{
+        background-image: url('images/texturefabrik_dust-01.png');
+        background-position:center;
+        background-size:cover; height:100%
+    }
+
+    #rightcolumn #logo{
+        max-width: 500px; margin: 0; margin-bottom: 3em;
+    }
+
+    #rightcolumn #mc_embed_signup{
+        font-size: 30px;
+    }
+
+    #rightcolumn #mc-embedded-subscribe{
+        font-family: Acherus Grotesque Regular, sans-serif; 
+        background-color: white;
+        border: none;
+        color: black;
+        padding: 16px 32px;
+        text-align: center;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition: 0.3s;
+    }
+
+    #rightcolumn #mc-embedded-subscribe:hover, #rightcolumn #mc-embedded-subscribe:focus{
+        background-color: lightgray;
+    }
+
+    #rightcolumn #mc_embed_signup_scroll{
+        text-align: center; color:white; padding:1vw;
+    }
+
+    #rightcolumn #mce-FNAME, #rightcolumn #mce-EMAIL{
+            margin-top: 1vw; width:20em  ; height:2em; font-family: Acherus Grotesque Regular, sans-serif;
+    }
+
+    #rightcolumn #mce-EMAIL{
+        margin-bottom: 1vw;
+    }
+
+    #rightcolumn #socials{
+        text-align: center;
+    }
+
+    #rightcolumn .social{
+        width:35px;
+        vertical-align: middle;
+        padding:6px;
+        transition: fill 0.3s;
+    }
+
+    #rightcolumn a{
+        fill:white;
+        
+        text-decoration: none;
+        
+    }
+
+    #rightcolumn a :hover, #rightcolumn a :focus{
+        fill: lightgray;
+    }
+
+    #rightcolumn #emaillink{
+        font-family: Acherus Grotesque Regular, sans-serif; 
+        text-decoration: none;
+        color:white;
+        transition: color 0.3s;
+    }
+
+    #rightcolumn #emaillink:hover, #rightcolumn #emaillink:focus{
+        color:lightgray;
+    }
 }
 
-a{
-    text-decoration: none;
-    font-family: Acherus Grotesque Regular, sans-serif;
-    
-}
+/* MOBILE */
+@media only screen and (max-width: 768px){
 
-.social:hover, .social:focus{
-    fill: lightgray;
-    
-}
+    #leftcolumn .column, #rightcolumn .column{
+        display:flex;
+        
+    }
 
-#emaillink{
-    text-decoration: none;
-    color:white;
-    transition: color 0.3s;
-}
+    #leftcolumn .row, #rightcolumn .row{
+        flex:50%;
+        position: relative;
+    }
 
-#emaillink:hover, #emaillink:focus{
-    color:lightgray;
-}
+    #header .column{
+        
+        flex:33%;
+    }
 
-.project{
-    text-align: center;
-    background-color: white;
-    color:black;
-    margin-bottom: 1em;
-    padding:1em;
-    width:400px;
-    transition: background-color 0.3s;
-}
+    #header .row{
+        display:flex;
+        position: relative;
+    }
 
-.project:hover, .project:focus{
-    background-color: lightgray;
-}
+    .center_container{
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%)
+    }
 
-.project a{
-    color: white;
+    .center_inner{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #header #logo{
+        font-family: Acherus Grotesque Regular, sans-serif;
+        text-align: center;
+        font-size:1.2em;    
+    }
+
+    #header #socials{
+        position: absolute;
+    top: 50%;
+    right:5%;
+    transform: translateY(-50%);
+
+    }
+
+    #header .social{
+        width:35px;
+        vertical-align: middle;
+        padding:6px;
+        fill:black;
+        transition: fill 0.3s;
+            
+    }
+
+    #header a{
+        text-decoration: none;
+        font-family: Acherus Grotesque Regular, sans-serif;
+        
+    }
+
+    #header .social:hover, #header .social:focus{
+        fill: lightgray;
+    }
+
+    /*LEFT COLUMN*/
+
+    #leftPageBg{
+        background-color: white;
+        background-image :linear-gradient(45deg,  rgb(12, 245, 116,0.4), rgb(58, 190, 255,0.4),rgb(239, 171, 255,0.4), rgb(236, 5, 142,0.4), rgb(255, 190, 11,0.4));
+        background-size: 300%;
+        background-position:center;
+        height:100vh;
+        animation: bg-animation 20s infinite alternate;
+    }
+
+    @keyframes bg-animation {
+        0% {background-position: left}
+        100% {background-position: right}
+    }
+
+    #leftcolumn #logo{
+        max-width: 500px; margin: 0; margin-bottom: 1em;
+        font-size: 40px;
+        font-family: Acherus Grotesque Regular, sans-serif;
+        color:white;
+    }
+
+    #leftcolumn #socials{
+        text-align: center;
+    }
+
+    #leftcolumn .social{
+        width:35px;
+        vertical-align: middle;
+        padding:6px;
+        fill:white;
+        transition: fill 0.3s;
+            
+    }
+
+    #leftcolumn a{
+        text-decoration: none;
+        font-family: Acherus Grotesque Regular, sans-serif;
+        
+    }
+
+    #leftcolumn .social:hover, #leftcolumn .social:focus{
+        fill: lightgray;
+        
+    }
+
+    #leftcolumn #emaillink{
+        text-decoration: none;
+        color:white;
+        transition: color 0.3s;
+    }
+
+    #leftcolumn #emaillink:hover, #leftcolumn #emaillink:focus{
+        color:lightgray;
+    }
+
+    #leftcolumn .project{
+        text-align: center;
+        background-color: white;
+        color:black;
+        margin-bottom: 1em;
+        padding:1em;
+        width:400px;
+        transition: background-color 0.3s;
+    }
+
+    #leftcolumn .project:hover, #leftcolumn .project:focus{
+        background-color: lightgray;
+    }
+
+    #leftcolumn .project a{
+        color: white;
+    }
+
+    #leftcolumn a{
+        text-decoration: none;
+    }
+
+    /*RIGHT COLUMN*/
+
+    #rightPageBg{
+        background-image: url('images/texturefabrik_dust-01.png');
+        background-position:center;
+        background-size:cover; height:100vh
+    }
+
+    #rightcolumn #logo{
+        max-width: 500px; margin: 0; margin-bottom: 3em;
+    }
+
+    #rightcolumn #mc_embed_signup{
+        font-size: 30px;
+    }
+
+    #rightcolumn #mc-embedded-subscribe{
+        font-family: Acherus Grotesque Regular, sans-serif; 
+        background-color: white;
+        border: none;
+        color: black;
+        padding: 16px 32px;
+        text-align: center;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition: 0.3s;
+    }
+
+    #rightcolumn #mc-embedded-subscribe:hover, #rightcolumn #mc-embedded-subscribe:focus{
+        background-color: lightgray;
+    }
+
+    #rightcolumn #mc_embed_signup_scroll{
+        text-align: center; color:white; padding:1vw;
+    }
+
+    #rightcolumn #mce-FNAME, #rightcolumn #mce-EMAIL{
+            margin-top: 1vw; width:20em  ; height:2em; font-family: Acherus Grotesque Regular, sans-serif;
+    }
+
+    #rightcolumn #mce-EMAIL{
+        margin-bottom: 1vw;
+    }
+
+    #rightcolumn #socials{
+        text-align: center;
+    }
+
+    #rightcolumn .social{
+        width:35px;
+        vertical-align: middle;
+        padding:6px;
+        transition: fill 0.3s;
+    }
+
+    #rightcolumn a{
+        fill:white;
+        
+        text-decoration: none;
+        
+    }
+
+    #rightcolumn a :hover, #rightcolumn a :focus{
+        fill: lightgray;
+    }
+
+    #rightcolumn #emaillink{
+        font-family: Acherus Grotesque Regular, sans-serif; 
+        text-decoration: none;
+        color:white;
+        transition: color 0.3s;
+    }
+
+    #rightcolumn #emaillink:hover, #rightcolumn #emaillink:focus{
+        color:lightgray;
+    }
 }
