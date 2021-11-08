@@ -4,7 +4,7 @@ body{
 }
 
 /* DESKTOP */
-@media only screen and (min-width: 769px){
+@media only screen and (min-width: 800px){
     .column{
         flex:50%;
         position: relative;
@@ -222,7 +222,7 @@ body{
 }
 
 /* MOBILE */
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 800px){
 
     #leftcolumn .column, #rightcolumn .column{
         display:flex;
