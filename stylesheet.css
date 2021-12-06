@@ -227,7 +227,6 @@ hr{
 
     #zombieslider{
         height: 200px;
-        width:100vw;
         background-size: 1600px 200px;
         background-image: url("images/zombieslider.png");
         background-repeat: repeat-x;
