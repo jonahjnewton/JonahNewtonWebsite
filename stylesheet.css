@@ -4,6 +4,11 @@ body{
     height:100%;
 }
 
+@font-face {
+    font-family: Thunderstrike Cond;
+    src: url('thunderstrikecond.ttf');
+}
+
 /* MOBILE */
 
 #locationCircle{
@@ -218,11 +223,32 @@ hr{
         margin-bottom: 1vw;
     }
 
-    #showcase{
+    #zombieshowcase{
         height:200px;
         background-color: white;
         background-position:center;
         animation: zombie-bg-animation 20s infinite alternate, pageopenfade 1s;
+    }
+
+    #teddiesshowcase{
+        background-color: rgb(34, 27, 34);
+        height:200px;
+        width:100%;
+        text-align: center;
+        animation: pageopenfade 0.5s;
+        
+    }
+
+    #teddiesshowcase > a > div > p{
+        font-family: Thunderstrike Cond, sans-serif; 
+        font-size:4rem; 
+        margin:0;
+        background: linear-gradient(to right, #ffac28, #ff679c, #ff5ff4); 
+        background-size: 300%;  
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        animation: text-anim 3s infinite alternate;
+        animation-timing-function: linear;
     }
 
     #zombieslider{
@@ -234,6 +260,11 @@ hr{
         animation-timing-function: linear;
         text-align: center;
       
+    }
+
+    @keyframes text-anim{
+        0%{background-position: left;}
+        100%{background-position: right;}
     }
 
     @keyframes zombie-animation{
