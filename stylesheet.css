@@ -241,7 +241,7 @@ hr{
 
     #teddiesshowcase > div > a > p{
         font-family: Thunderstrike Cond, sans-serif; 
-        font-size:3.5rem; 
+        font-size:3rem; 
         margin:0;
         background: linear-gradient(to right, #ffac28, #ff679c, #ff5ff4); 
         background-size: 300%;  
@@ -307,5 +307,9 @@ hr{
     #header #logo{
         text-align: center;
         font-size:1.2em;    
+    }
+
+    #teddiesshowcase > div > a > p{
+        font-size:3.5rem; 
     }
 }
