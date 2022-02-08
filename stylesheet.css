@@ -9,6 +9,11 @@ body{
     src: url('thunderstrikecond.ttf');
 }
 
+@font-face {
+    font-family: Cyberway Riders;
+    src: url('Cyberway Riders.otf');
+}
+
 /* MOBILE */
 
 #locationCircle{
@@ -239,9 +244,8 @@ hr{
         
     }
 
-    #teddiesshowcase > div > a > p{
-        font-family: Thunderstrike Cond, sans-serif; 
-        font-size:3rem; 
+    #teddiesshowcase > div > .background-text{
+        font-size: 1rem;
         margin:0;
         background: linear-gradient(to right, #ffac28, #ff679c, #ff5ff4); 
         background-size: 300%;  
@@ -307,9 +311,5 @@ hr{
     #header #logo{
         text-align: center;
         font-size:1.2em;    
-    }
-
-    #teddiesshowcase > div > a > p{
-        font-size:3.5rem; 
     }
 }
