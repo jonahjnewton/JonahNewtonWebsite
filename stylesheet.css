@@ -29,6 +29,26 @@ body{
     background-color: black;
 }
 
+.button{
+    font-family: Brandon Regular, sans-serif; 
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 1rem 2rem;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition: 0.3s;
+}
+
+.button:hover, .button:focus{
+    background-color: lightgray;
+}
+
+#mc-field-group{
+    text-align: center;
+}
+
 @keyframes location-animation {
     from {
         opacity: 0;
@@ -149,7 +169,7 @@ hr{
     }
 
     #leftcolumn #logo{
-        max-width: 500px; margin: 0; margin-bottom: 1em;
+        max-width: 500px; margin: 0;
         font-size: 40px;
         color:white;
     }
@@ -185,15 +205,20 @@ hr{
     /*RIGHT COLUMN*/
 
     #rightPageBg{
-        background-image: url('images/texturefabrik_dust-01.png');
+        background :linear-gradient(to right,#0a68c6, #369aff,#67b3ff);
+        background-size: 300%;
         background-position:center;
-        background-size:cover; height:100vh;
+        height:100vh;
+        animation: bg-animation 5s alternate infinite;
         min-height:550px;
         
     }
 
     #rightcolumn #logo{
-        max-width: 300px; margin: 0; margin-bottom: 1em;
+        max-width: 500px; margin: 0;
+        font-size: 40px;
+        font-family: Brandon Regular, sans-serif;
+        color:white;
     }
 
     #rightcolumn #mc_embed_signup{
@@ -221,7 +246,7 @@ hr{
     }
 
     #rightcolumn #mce-FNAME, #rightcolumn #mce-EMAIL{
-            margin-top: 1vw; width:20em  ; height:2em; font-family: Acherus Grotesque Regular, sans-serif;
+            margin-top: 1vw; width:20em  ; height:2em; font-family: Brandon Regular, sans-serif; display:block; margin-left: auto; margin-right: auto;
     }
 
     #rightcolumn #mce-EMAIL{
