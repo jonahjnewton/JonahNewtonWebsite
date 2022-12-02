@@ -124,9 +124,9 @@ hr{
     }
 
     .social{
-        width:35px;
+        width:2rem;
         vertical-align: middle;
-        padding:6px;
+        padding:0.35rem;
         transition: fill 0.3s;  
     }
 
