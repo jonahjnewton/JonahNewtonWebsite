@@ -72,6 +72,21 @@ hr{
     margin-bottom:2em;
 }
 
+#ALA-logo{
+    display:flex;
+    max-height: 6rem;
+    max-width: 100%;
+}
+#ALA-logo img{
+    max-height: 6rem;
+    height:13vw;
+}
+
+#roboramen-title{
+    max-height: 20rem;
+    height:40vw;
+}
+
     #leftcolumn .column, #rightcolumn .column{
         display:flex;
         
@@ -191,6 +206,15 @@ hr{
 
     .emaillink:hover, .emaillink:focus{
         color:lightgray;
+    }
+
+    #roboramen-overlay .project{
+        text-align: center;
+        background-color: white;
+        color:black;
+        margin-bottom: 1em;
+        padding:1em 2em;
+        transition: background-color 0.3s;
     }
 
     #leftcolumn .project{
@@ -316,6 +340,24 @@ hr{
         50% {background-color: green}
         75%{background-color: cyan;}
         100%{background-color: purple;} 
+    }
+
+    #roboramen-container{
+        background-image: url("images/roboramen.jpeg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    #roboramen-overlay{
+        background-color: rgba(0, 0, 0, 0.5);
+        height:100%;
+        min-height: 650px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
     }
 
 
