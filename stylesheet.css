@@ -107,7 +107,12 @@ hr{
 
     #header #logo{
         text-align: center;
-        font-size:1em;    
+        font-size:1em;
+        flex-direction: column;
+    }
+
+    #location{
+        font-size: 0.7rem; 
     }
 
     #header #socials{
@@ -335,6 +340,13 @@ hr{
 
     #header #logo{
         text-align: center;
-        font-size:1.2em;    
+        font-size:1.2em;   
+        flex-direction: row; 
+    }
+
+    #location{
+        margin-left: 1rem; 
+        padding-left: 1rem;
+        border-left: 1px solid black;
     }
 }
