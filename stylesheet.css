@@ -164,7 +164,7 @@ hr{
         background-size: 300%;
         background-position:center;
         height:100vh;
-        min-height:550px;
+        min-height:700px;
         animation: bg-animation 20s infinite alternate;
     }
 
@@ -215,7 +215,7 @@ hr{
         background-position:center;
         height:100vh;
         animation: bg-animation 5s alternate infinite;
-        min-height:550px;
+        min-height:700px;
         
     }
 
