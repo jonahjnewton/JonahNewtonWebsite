@@ -76,11 +76,11 @@ hr{
     display:flex;
     max-height: 6rem;
     max-width: 100%;
-    z-index: 999;
 }
 #ALA-logo img{
     max-height: 6rem;
     height:13vw;
+    z-index: 999;
 }
 
 #roboramen-title{
