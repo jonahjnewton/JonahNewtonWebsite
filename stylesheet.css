@@ -83,7 +83,19 @@ hr{
 }
 
 #roboramen-title{
-    max-height: 20rem;
+    max-height: 25rem;
+    height:50vw;
+    margin: auto;
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom: 0;
+    transform: translateY(-20%);
+}
+
+#roboramen-title-spacer{
+    max-height: 15rem;
     height:40vw;
 }
 
@@ -178,8 +190,8 @@ hr{
         background-image :linear-gradient(45deg,  rgb(12, 245, 116,0.4), rgb(58, 190, 255,0.4),rgb(239, 171, 255,0.4), rgb(236, 5, 142,0.4), rgb(255, 190, 11,0.4));
         background-size: 300%;
         background-position:center;
-        height:100vh;
-        min-height:700px;
+        height:fit-content;
+        min-height:750px;
         animation: bg-animation 20s infinite alternate;
     }
 
@@ -241,9 +253,9 @@ hr{
         background :linear-gradient(to right,#0a68c6, #369aff,#67b3ff);
         background-size: 300%;
         background-position:center;
-        height:100vh;
+        height:fit-content;
         animation: bg-animation 5s alternate infinite;
-        min-height:700px;
+        min-height:750px;
         
     }
 
@@ -394,5 +406,9 @@ hr{
         margin-left: 1rem; 
         padding-left: 1rem;
         border-left: 1px solid black;
+    }
+
+    #roboramen-title{
+        transform: translateY(-5%);
     }
 }
