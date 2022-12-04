@@ -90,8 +90,7 @@ hr{
     top:0;
     left:0;
     right:0;
-    bottom: 0;
-    transform: translateY(-20%);
+    bottom: calc(6rem);
 }
 
 #roboramen-title-spacer{
@@ -409,6 +408,6 @@ hr{
     }
 
     #roboramen-title{
-        transform: translateY(-5%);
+        bottom:calc(3rem);
     }
 }
