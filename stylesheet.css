@@ -85,17 +85,7 @@ hr{
 #roboramen-title{
     max-height: 25rem;
     height:50vw;
-    margin: auto;
-    position: absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom: calc(6rem);
-}
-
-#roboramen-title-spacer{
-    max-height: 15rem;
-    height:40vw;
+    margin: -10% 0;
 }
 
     #leftcolumn .column, #rightcolumn .column{
@@ -405,9 +395,5 @@ hr{
         margin-left: 1rem; 
         padding-left: 1rem;
         border-left: 1px solid black;
-    }
-
-    #roboramen-title{
-        bottom:calc(3rem);
     }
 }
