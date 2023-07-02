@@ -157,7 +157,7 @@ hr{
     }
 
     #location{
-        font-size: 0.7rem; 
+        font-size: 0.6rem; 
     }
 
     #header #socials{
@@ -515,6 +515,7 @@ hr{
         margin-left: 1rem; 
         padding-left: 1rem;
         border-left: 1px solid black;
+        font-size: 0.7rem;
     }
 
     .center_container{
