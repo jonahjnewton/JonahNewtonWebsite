@@ -101,6 +101,14 @@ hr{
     margin: -10% 0;
 }
 
+#coffeebrake-title{
+    max-height: 25rem;
+    /* height:50vw; */
+    max-width:100%;
+    margin: -10% 0;
+    /* padding: 5rem 0; */
+}
+
 #corrupted-title{
     animation: corrupted-animation 4s infinite;
 }
@@ -237,7 +245,7 @@ hr{
         color:lightgray;
     }
 
-    #roboramen-container .project, #corrupted-container .project{
+    #roboramen-container .project, #corrupted-container .project, #coffeebrake-container .project{
         text-align: center;
         background-color: white;
         color:black;
@@ -246,7 +254,7 @@ hr{
         transition: background-color 0.3s;
     }
 
-    #roboramen-container .project:hover, #roboramen-container .project:focus, #corrupted-container .project:hover, #corrupted-container .project:focus{
+    #roboramen-container .project:hover, #roboramen-container .project:focus, #corrupted-container .project:hover, #corrupted-container .project:focus, #coffeebrake-container .project:hover, #coffeebrake-container .project:focus{
         background-color: lightgray;
     }
 
@@ -377,17 +385,23 @@ hr{
     #roboramen-background{
         background-image: url("images/roboramen.jpeg");
         -webkit-clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 12.5% 100%);
-        clip-path: polygon(0% 33.333%, 100% 0%, 100% 100%, 0% 100%);
+        clip-path: polygon(0% 20%, 100% 0%, 100% 100%, 0% 100%);
         
     }
 
     #corrupted-background{
         background-image: url("images/corrupted.png");
         -webkit-clip-path: polygon(0% 0%, 100% 0%, 75% 100%, 0% 100%);
+        clip-path: polygon(0% 20%, 100% 0%, 100% 80%, 0% 100%);
+    }
+
+    #coffeebrake-background{
+        background-image: url("images/coffeebrake.png");
+        -webkit-clip-path: polygon(0% 0%, 100% 0%, 75% 100%, 0% 100%);
         clip-path: polygon(0% 0%, 100% 0%, 100% 83.3333%, 0% 100%);
     }
 
-    #roboramen-background, #corrupted-background{
+    #roboramen-background, #corrupted-background, #coffeebrake-background{
         position:absolute;
         background-position: center;
         background-repeat: no-repeat;
@@ -404,21 +418,29 @@ hr{
         bottom:0;
     }
 
-    #ALA-container{
-        /* background-color: rgba(0, 0, 0, 0.5); */
+    #coffeebrake-background{
+        top:0;
+    }
+
+
+    .ALA-top-container,.ALA-top-overlay{
+        background-color: rgba(0, 0, 0, 0.5);
         height: calc(2 * (2rem * 2 + min(6rem, 13vw) + min(25rem, 1080 * 100vw / 1920) - 0.1 * min(25rem, 1080 * 100vw / 1920) * 2 + 1px + 1rem + 0.75em + 2em + 1em + 1em * 2 + 1em));
         position: absolute;
         width:100%;
         z-index: -1;
     }
 
-    #ALA-overlay{
-        background-color: rgba(0, 0, 0, 0.4);
-        height: calc(2 * (2rem * 2 + min(6rem, 13vw) + min(25rem, 1080 * 100vw / 1920) - 0.1 * min(25rem, 1080 * 100vw / 1920) * 2 + 1px + 1rem + 0.75em + 2em + 1em + 1em * 2 + 1em));
+    .ALA-bottom-container,.ALA-bottom-overlay{
+        background-color: rgba(0, 0, 0, 0.5);
+        height: calc(2 * (2rem * 2 + min(25rem, 1080 * 100vw / 1920) - 0.1 * min(25rem, 1080 * 100vw / 1920) * 2 + 1px + 1rem + 0.75em + 2em + 1em + 1em * 2 + 1em));
         position: absolute;
         width:100%;
         z-index: -1;
+        clip-path: polygon(0% 12%, 100% 0%, 100% 100%, 0% 100%);
     }
+
+
 
     #roboramen-container{
         /* background-color: rgba(0, 0, 0, 0.5); */
@@ -443,13 +465,31 @@ hr{
         justify-content: center;
         flex-direction: column;
     }
+    
+    #coffeebrake-container{
+        /* background-color: rgba(0, 0, 0, 0.25); */
+        height:100%;
+        width: 100%;
+        height: fit-content;
+        padding: 2rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
 
 
 /* DESKTOP */
 @media only screen and (min-width: 768px){
-    #ALA-container, #ALA-overlay{
+    .ALA-top-container, .ALA-top-overlay{
         /* background-color: rgba(0, 0, 0, 0.5); */
-        height: calc(min(6rem, 9vw) + min(25rem, 50vw) - (0.1 * min(25rem, 50vw)) + 1rem + 1px + 0.75em + 2em + 2em + 1em);
+        height: calc(2rem * 2 + min(6rem, 9vw) + min(25rem, 100vw) - (0.1 * min(25rem, 100vw)) + 1rem + 1px + 0.75em + 2em + 2em + 1em);
+    }
+
+    .ALA-bottom-container, .ALA-bottom-overlay{
+        /* background-color: rgba(0, 0, 0, 0.5); */
+        height: calc(2rem * 2 + min(25rem, 50vw) - (0.1 * min(25rem, 50vw)) + 1rem + 1px + 0.75em + 2em + 2em + 1em);
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
 
     #ALA-logo img{
@@ -466,6 +506,14 @@ hr{
         width:60vw;
     }
 
+    #coffeebrake-background{
+        position:absolute;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height:inherit;
+        width:100vw;
+    }
+
     #roboramen-background{
         background-image: url("images/roboramen.jpeg");
         -webkit-clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 12.5% 100%);
@@ -477,6 +525,12 @@ hr{
         background-image: url("images/corrupted.png");
         -webkit-clip-path: polygon(0% 0%, 100% 0%, 75% 100%, 0% 100%);
         clip-path: polygon(0% 0%, 100% 0%, 83.3333% 100%, 0% 100%);
+    }
+
+    #coffeebrake-background{
+        background-image: url("images/coffeebrake.png");
+        -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
 
     #corrupted-background{
