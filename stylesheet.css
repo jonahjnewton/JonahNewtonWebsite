@@ -417,26 +417,26 @@ hr{
 
     #roboramen-background{
         background-image: url("images/roboramen.jpeg");
-        -webkit-clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 12.5% 100%);
-        clip-path: polygon(0% 20%, 100% 0%, 100% 100%, 0% 100%);
+        /* -webkit-clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 12.5% 100%); */
+        clip-path: polygon(0% 18%, 100% 0%, 100% 100%, 0% 100%);
         
     }
 
     #corrupted-background{
         background-image: url("images/corrupted.png");
-        -webkit-clip-path: polygon(0% 0%, 100% 0%, 75% 100%, 0% 100%);
-        clip-path: polygon(0% 20%, 100% 0%, 100% 80%, 0% 100%);
+        /* -webkit-clip-path: polygon(0% 0%, 100% 0%, 75% 100%, 0% 100%); */
+        clip-path: polygon(0% 18%, 100% 0%, 100% 82%, 0% 100%);
     }
 
     #coffeebrake-background{
         background-image: url("images/coffeebrake.png");
-        -webkit-clip-path: polygon(0% 0%, 100% 0%, 75% 100%, 0% 100%);
-        clip-path: polygon(0% 20%, 100% 0%, 100% 100%, 0% 100%);
+        /* -webkit-clip-path: polygon(0% 0%, 100% 0%, 75% 100%, 0% 100%); */
+        clip-path: polygon(0% 17%, 100% 2%, 100% 100%, 0% 100%);
     }
 
     #alone-background{
         background-image: url("images/alone.png");
-        -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+        /* -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); */
         clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
 
@@ -480,7 +480,7 @@ hr{
         position: absolute;
         width:100%;
         z-index: -1;
-        clip-path: polygon(0% 12%, 100% 0%, 100% 100%, 0% 100%);
+        clip-path: polygon(0% 11%, 100% 0%, 100% 100%, 0% 100%);
     }
 
 
