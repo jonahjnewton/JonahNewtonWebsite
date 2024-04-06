@@ -212,8 +212,13 @@ hr{
     .social{
         width:1rem;
         vertical-align: middle;
-        padding-left:0.4rem;
+        padding:0.2rem;
         transition: fill 0.3s;  
+    }
+
+    .headersocial{
+        padding-left:0.4rem;
+        padding-right:0rem;
     }
 
     .social:hover, .social:focus{
@@ -665,7 +670,12 @@ hr{
     }
     .social{
         width:1.5rem;
-        padding-left:0.7rem;
+        padding:0.35rem;
         transition: fill 0.3s;  
+    }
+
+    .headersocial{
+        padding-left:0.7rem;
+        padding-right:0rem;
     }
 }
