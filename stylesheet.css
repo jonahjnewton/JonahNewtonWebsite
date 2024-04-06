@@ -212,7 +212,7 @@ hr{
     .social{
         width:1rem;
         vertical-align: middle;
-        padding:0.2rem;
+        padding-left:0.4rem;
         transition: fill 0.3s;  
     }
 
@@ -665,7 +665,7 @@ hr{
     }
     .social{
         width:1.5rem;
-        padding:0.35rem;
+        padding-left:0.7rem;
         transition: fill 0.3s;  
     }
 }
