@@ -1,0 +1,4 @@
+# "Hello there." - Anakin Skywalker to Chewbacca, Mordor, 69 BC
+
+User-agent: *
+Allow: /
