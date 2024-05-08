@@ -29,6 +29,11 @@ body{
     background-color: black;
 }
 
+.projectButtonsContainer{
+    display: flex;
+    flex-direction: row;
+}
+
 .button{
     font-family: Brandon Regular, sans-serif; 
     background-color: white;
