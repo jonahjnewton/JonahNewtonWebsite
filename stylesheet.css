@@ -54,6 +54,27 @@ body{
     text-align: center;
 }
 
+.carousel{
+    height:30em;
+    width:calc(100vw - 2em);
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 0 1em;
+}
+
+.carousel > iframe{
+    flex-shrink: 0;
+    transform-origin: center center;
+    transform: scale(1);
+    transition: transform 0.5s;
+    position: relative;
+    margin-right: 1em;
+    max-width: calc(75vw - 2em);
+}
+
 @keyframes location-animation {
     from {
         opacity: 0;
