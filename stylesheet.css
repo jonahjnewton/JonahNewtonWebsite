@@ -65,7 +65,7 @@ body{
     padding: 0 1em;
 }
 
-.carousel > iframe{
+.carousel > .carouselSlide{
     flex-shrink: 0;
     transform-origin: center center;
     transform: scale(1);
@@ -73,6 +73,15 @@ body{
     position: relative;
     margin-right: 1em;
     max-width: calc(75vw - 2em);
+}
+
+.carouselSlide > iframe{
+    max-width: calc(75vw - 2em);
+}
+
+.carouselSlide > h2{
+    /* max-width: calc(75vw - 2em); */
+    height:2.5em;
 }
 
 @keyframes location-animation {
@@ -574,7 +583,7 @@ hr{
 
     .ALA-bottom-container, .ALA-bottom-overlay{
         /* background-color: rgba(0, 0, 0, 0.5); */
-        height: calc(2rem * 2 + min(25rem, 50vw) - (0.1 * min(25rem, 50vw)) + 1rem + 1px + 0.75em + 2em + 2em + 1em);
+        height: calc(2rem * 2 + min(25rem, (9 / 16) * min(((16 / 9) * 25rem), 50vw)) - (0.1 * min(25rem, (9 / 16) * min(((16 / 9) * 25rem), 50vw))) + 1rem + 1px + 0.75em + 2em + 2em + 1em);
         clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
 
