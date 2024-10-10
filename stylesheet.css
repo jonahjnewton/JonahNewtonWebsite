@@ -95,8 +95,16 @@ body{
     }
 }
 
-h1, h2{
+h1, h2, h3{
     text-align: center;
+}
+
+.inlinelink{
+    text-decoration: underline;
+    color: black;
+    transition: color 0.3s;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
 }
 
 hr{
@@ -274,7 +282,7 @@ hr{
         transition: color 0.3s;
     }
 
-    #contact .emaillink:hover, #contact .emaillink:focus{
+    #contact .emaillink:hover, #contact .emaillink:focus, .inlinelink:hover, .inlinelink:focus{
         color:lightgray;
     }
 
