@@ -16,6 +16,10 @@ body{
 
 /* MOBILE */
 
+.socialbreak{
+    display:block;
+}
+
 #locationCircle{
     fill:red;
     animation: location-animation 1s infinite;
@@ -720,5 +724,8 @@ hr{
     .headersocial{
         padding-left:0.7rem;
         padding-right:0rem;
+    }
+    .socialbreak{
+        display:none;
     }
 }
