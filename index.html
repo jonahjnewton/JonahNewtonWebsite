@@ -37,67 +37,74 @@
 
             function setHeightsEqual(elementName, containerName=null, containerPadding=0){
 
-                        var allElements = $(elementName).map(function() {
-                            return $(this);
-                        });
+                var allElements = $(elementName).map(function() {
+                    return $(this);
+                });
 
-                        for (var i = 0; i < allElements.length; i++){
-                            var element = allElements[i];
-                            element.css('height', '');
-                        }
-                        
-                        var allElementHeights = allElements.map(function() {
-                            return $(this).height();
-                        });
+                for (var i = 0; i < allElements.length; i++){
+                    var element = allElements[i];
+                    element.css('height', '');
+                }
+                
+                var allElementHeights = allElements.map(function() {
+                    return $(this).height();
+                });
 
-                        var max = Math.max.apply(null, allElementHeights);
+                var max = Math.max.apply(null, allElementHeights);
 
-                        if (containerName != null) {
-                            var allContainers = $(containerName).map(function() {
-                                return $(this);
-                            });
+                if (containerName != null) {
+                    var allContainers = $(containerName).map(function() {
+                        return $(this);
+                    });
 
-                            for (var i = 0; i < allContainers.length; i++){
-                                var container = allContainers[i];
-                                container.css('height', '');
-                            }
-
-
-                            for (var i = 0; i < allContainers.length; i++) {
-                                var container = allContainers[i];
-                                var containerHeight = container.height();
-                                var child = container.find(elementName);
-                                var childHeight = child.height();
-
-                                if (childHeight < max) {
-                                    // console.log("Setting height to " + max);
-                                    container.height(max + containerPadding);
-                                }
-                            }
-                        }else{
-                            for (var i = 0; i < allElements.length; i++) {
-                                var element = allElements[i];
-                                var elementHeight = element.height();
-                                
-                                if (elementHeight < max) {
-                                    // console.log("Setting height to " + max);
-                                    element.height(max);
-                                }
-                            }
-                        }
+                    for (var i = 0; i < allContainers.length; i++){
+                        var container = allContainers[i];
+                        container.css('height', '');
                     }
 
-            $(document).ready(function() {
-                $(window).resize(function() {
 
-                    setHeightsEqual('.ALA-project-title', '.ALA-project-info', 40);
-                    setHeightsEqual('.pipelineWorkCarouselSlide > h2');
+                    for (var i = 0; i < allContainers.length; i++) {
+                        var container = allContainers[i];
+                        var containerHeight = container.height();
+                        var child = container.find(elementName);
+                        var childHeight = child.height();
 
-                    // console.log(max);
-
-                }).resize();
+                        if (childHeight < max) {
+                            // console.log("Setting height to " + max);
+                            container.height(max + containerPadding);
+                        }
+                    }
+                }else{
+                    for (var i = 0; i < allElements.length; i++) {
+                        var element = allElements[i];
+                        var elementHeight = element.height();
+                        
+                        if (elementHeight < max) {
+                            // console.log("Setting height to " + max);
+                            element.height(max);
+                        }
+                    }
+                }
+            }
+            
+            function adjustCarouselTitleHeights(){
                 setHeightsEqual('.ALA-project-title', '.ALA-project-info', 40);
                 setHeightsEqual('.pipelineWorkCarouselSlide > h2');
+            }
+
+            $(document).ready(function() {
+                adjustCarouselTitleHeights();
+                // console.log(max);
+            });
+            
+            $(window).on("load", function() {
+                adjustCarouselTitleHeights();
+                // console.log(max);
+            });
+            
+            $(window).on("resize", function() {
+                adjustCarouselTitleHeights();
+                // console.log(max);
             });
         </script>
 
