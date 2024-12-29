@@ -124,17 +124,24 @@ hr{
     color: white;
 }
 
+.separator-container{
+    width:100%;
+    min-width: 100vw;
+    overflow: hidden;
+}
+
 .separator{
     margin-top:-25px;
     border:none;
-    margin-left:0;
+    margin-left:-10%;
     margin-right:0;
-    width:100%;
+    width:120%;
     height:25px;
     color:rgba(0, 0, 0, 0);
     background-color: rgba(0, 0, 0, 0);
     box-shadow: 0 12px 6px -6px rgba(0, 0, 0, 0.25); 
     z-index: -1;
+    overflow: hidden;
 }
 
 #ALA-logo{
