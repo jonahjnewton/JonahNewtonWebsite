@@ -87,14 +87,9 @@ body{
     max-width: calc(75vw - 2em);
 }
 
-.alaCarouselSlide > h2{
+.ALA-project-info > h2{
     /* max-width: calc(75vw - 2em); */
     margin-bottom: 0;
-}
-
-.alaCarouselSlide > small{
-    text-align: center;
-    margin-bottom: 20px;
 }
 
 .pipelineWorkCarouselSlide > h2{
@@ -158,15 +153,18 @@ hr{
     z-index: 999;
 }
 
+.ALA-project-info{
+    height:72px;
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
 .ALA-project-poster{
     max-height: 40rem;
     height:60vw;
     max-width:40vw;
-}
-
-.ALA-placeholder{
-    max-height: 6rem;
-    height:13vw;
 }
 
 .ALA-project-button-container{
