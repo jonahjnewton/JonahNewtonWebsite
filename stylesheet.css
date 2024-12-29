@@ -444,3 +444,9 @@ hr{
         display:none;
     }
 }
+
+@media only screen and (min-width: 813px){
+    .ALA-project-info{
+        height:72px;
+    }
+}
