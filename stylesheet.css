@@ -10,7 +10,7 @@ body{
     display:block;
 }
 
-#hide{
+.hide-on-mobile{
     display:none;
 }
 
@@ -368,7 +368,7 @@ hr{
         z-index: 999;
     }
 
-    #hide{
+    .hide-on-mobile{
         display:flex;
     }
 
