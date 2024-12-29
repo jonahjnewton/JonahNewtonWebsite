@@ -88,13 +88,7 @@ body{
 }
 
 .ALA-project-info > h2{
-    /* max-width: calc(75vw - 2em); */
     margin-bottom: 0;
-}
-
-.pipelineWorkCarouselSlide > h2{
-    /* max-width: calc(75vw - 2em); */
-    height:2.5em;
 }
 
 h1, h2, h3{
@@ -154,7 +148,6 @@ hr{
 }
 
 .ALA-project-info{
-    height:108px;
     text-align: center;
     display:flex;
     flex-direction: column;
@@ -442,11 +435,5 @@ hr{
     }
     .socialbreak{
         display:none;
-    }
-}
-
-@media only screen and (min-width: 813px){
-    .ALA-project-info{
-        height:72px;
     }
 }

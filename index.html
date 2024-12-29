@@ -33,6 +33,72 @@
             })
         </script>
 
+        <script>
+
+            $(document).ready(function() {
+                $(window).resize(function() {
+
+                    function setHeightsEqual(elementName, containerName=null, containerPadding=0){
+
+                        var allElements = $(elementName).map(function() {
+                            return $(this);
+                        });
+
+                        for (var i = 0; i < allElements.length; i++){
+                            var element = allElements[i];
+                            element.css('height', '');
+                        }
+                        
+                        var allElementHeights = allElements.map(function() {
+                            return $(this).height();
+                        });
+
+                        var max = Math.max.apply(null, allElementHeights);
+
+                        if (containerName != null) {
+                            var allContainers = $(containerName).map(function() {
+                                return $(this);
+                            });
+
+                            for (var i = 0; i < allContainers.length; i++){
+                                var container = allContainers[i];
+                                container.css('height', '');
+                            }
+
+
+                            for (var i = 0; i < allContainers.length; i++) {
+                                var container = allContainers[i];
+                                var containerHeight = container.height();
+                                var child = container.find(elementName);
+                                var childHeight = child.height();
+
+                                if (childHeight < max) {
+                                    // console.log("Setting height to " + max);
+                                    container.height(max + containerPadding);
+                                }
+                            }
+                        }else{
+                            for (var i = 0; i < allElements.length; i++) {
+                                var element = allElements[i];
+                                var elementHeight = element.height();
+                                
+                                if (elementHeight < max) {
+                                    // console.log("Setting height to " + max);
+                                    element.height(max);
+                                }
+                            }
+                        }
+                    }
+
+                    setHeightsEqual('.ALA-project-title', '.ALA-project-info', 40);
+                    setHeightsEqual('.pipelineWorkCarouselSlide > h2');
+
+                    // console.log(max);
+
+                }).resize();
+            });
+        </script>
+
         <style type="text/css">
             @font-face {
                 font-family: Acherus Grotesque Regular;
@@ -119,10 +185,10 @@
                 <small>Pipeline Technical Director<br/>2022 - Present</small>
             </div>
 
-            <div class="row carousel">
+            <div class="row carousel alaCarousel">
                 <div class="column carouselSlide alaCarouselSlide">
                     <div class="ALA-project-info">
-                        <h2>Fool's Gold</h2>
+                        <h2 class="ALA-project-title">Fool's Gold</h2>
                         <small>Unreleased</small>
                     </div>
                     <div class="ala-poster-container">
@@ -132,7 +198,7 @@
                 </div>
                 <div class="column carouselSlide alaCarouselSlide">
                     <div class="ALA-project-info">
-                        <h2>SK8-bit</h2>
+                        <h2 class="ALA-project-title">SK8-bit</h2>
                         <small>2024</small>
                     </div>
                     <div class="ala-poster-container">
@@ -142,7 +208,7 @@
                 </div>
                 <div class="column carouselSlide alaCarouselSlide">
                     <div class="ALA-project-info">
-                        <h2>Alone</h2>
+                        <h2 class="ALA-project-title">Alone</h2>
                         <small>2024</small>
                     </div>
                     <div class="ala-poster-container">
@@ -152,7 +218,7 @@
                 </div>
                 <div class="column carouselSlide alaCarouselSlide">
                     <div class="ALA-project-info">
-                        <h2>Coffee Brake</h2>
+                        <h2 class="ALA-project-title">Coffee Brake</h2>
                         <small>2023</small>
                     </div>
                     <div class="ala-poster-container">
@@ -162,7 +228,7 @@
                 </div>
                 <div class="column carouselSlide alaCarouselSlide">
                     <div class="ALA-project-info">
-                        <h2>Corrupted</h2>
+                        <h2 class="ALA-project-title">Corrupted</h2>
                         <small>2023</small>
                     </div>
                     <div class="ala-poster-container">
@@ -172,7 +238,7 @@
                 </div>
                 <div class="column carouselSlide alaCarouselSlide">
                     <div class="ALA-project-info">
-                        <h2>Robo Ramen</h2>
+                        <h2 class="ALA-project-title">Robo Ramen</h2>
                         <small>2022</small>
                     </div>
                     <div class="ala-poster-container">
