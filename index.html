@@ -35,10 +35,7 @@
 
         <script>
 
-            $(document).ready(function() {
-                $(window).resize(function() {
-
-                    function setHeightsEqual(elementName, containerName=null, containerPadding=0){
+            function setHeightsEqual(elementName, containerName=null, containerPadding=0){
 
                         var allElements = $(elementName).map(function() {
                             return $(this);
@@ -90,12 +87,17 @@
                         }
                     }
 
+            $(document).ready(function() {
+                $(window).resize(function() {
+
                     setHeightsEqual('.ALA-project-title', '.ALA-project-info', 40);
                     setHeightsEqual('.pipelineWorkCarouselSlide > h2');
 
                     // console.log(max);
 
                 }).resize();
+                setHeightsEqual('.ALA-project-title', '.ALA-project-info', 40);
+                setHeightsEqual('.pipelineWorkCarouselSlide > h2');
             });
         </script>
 
