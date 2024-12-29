@@ -59,7 +59,7 @@ body{
 }
 
 .carousel{
-    height:30em;
+    /* max-height:30em; */
     width:calc(100vw - 2em);
     display: flex;
     flex-direction: row;
@@ -76,6 +76,28 @@ body{
     transition: transform 0.5s;
     position: relative;
     margin-right: 1em;
+}
+
+.pipelineWorkCarousel{
+    height:30em;
+}
+
+.alaCarouselSlide{
+    /* max-width: calc(20vw - 2em); */
+    max-width: 40vw;
+
+    display:flex;
+    flex-direction: column;
+}
+
+.ala-poster-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.pipelineWorkCarouselSlide{
     max-width: calc(75vw - 2em);
 }
 
@@ -83,7 +105,7 @@ body{
     max-width: calc(75vw - 2em);
 }
 
-.carouselSlide > h2{
+.pipelineWorkCarouselSlide > h2{
     /* max-width: calc(75vw - 2em); */
     height:2.5em;
 }
@@ -122,24 +144,45 @@ hr{
 }
 
 #ALA-logo{
-    position:absolute;
     display:flex;
-    left:0;
-    right:0;
     margin:2rem auto 0 auto;
     max-height: 6rem;
     max-width: 100%;
     width: fit-content;
 }
+
 #ALA-logo img{
     max-height: 6rem;
     height:13vw;
     z-index: 999;
 }
 
+.ALA-project-poster{
+    max-height: 40rem;
+    height:60vw;
+    max-width:40vw;
+}
+
 .ALA-placeholder{
     max-height: 6rem;
     height:13vw;
+}
+
+.ALA-project-button-container{
+    margin-top:1rem;
+}
+
+.ALA-project-button{
+    text-align: center;
+    background-color: lightgray;
+    color:black;
+    margin-bottom: 1em;
+    padding:1em 2em;
+    transition: background-color 0.3s;
+}
+
+.ALA-project-button:hover, .ALA-project-button:focus{
+    background-color: gray;
 }
 
 #roboramen-title, #corrupted-title, #coffeebrake-title, #alone-title{
@@ -597,6 +640,17 @@ hr{
         /* background-color: rgba(0, 0, 0, 0.5); */
         height: calc(2rem * 2 + min(25rem, (9 / 16) * min(((16 / 9) * 25rem), 50vw)) - (0.1 * min(25rem, (9 / 16) * min(((16 / 9) * 25rem), 50vw))) + 1rem + 1px + 0.75em + 2em + 2em + 1em);
         clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+
+    .ALA-project-poster{
+        max-height: 40rem;
+        height:25vw;
+        max-width:20vw;
+    }
+
+    .alaCarouselSlide{
+        /* max-width: calc(20vw - 2em); */
+        max-width: 20vw;
     }
 
     #coffeebrake-container{
