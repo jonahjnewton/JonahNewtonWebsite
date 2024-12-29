@@ -87,6 +87,16 @@ body{
     max-width: calc(75vw - 2em);
 }
 
+.alaCarouselSlide > h2{
+    /* max-width: calc(75vw - 2em); */
+    margin-bottom: 0;
+}
+
+.alaCarouselSlide > small{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 .pipelineWorkCarouselSlide > h2{
     /* max-width: calc(75vw - 2em); */
     height:2.5em;
