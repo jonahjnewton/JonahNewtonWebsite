@@ -1,3 +1,7 @@
+html{
+    background-color: white;
+}
+
 body{
     font-family: Acherus Grotesque Regular, sans-serif; 
     margin:0; 
@@ -33,7 +37,7 @@ body{
 }
 
 .button:hover, .button:focus{
-    background-color: lightgray;
+    background-color: white;
 }
 
 #mc-field-group{
@@ -251,13 +255,13 @@ hr{
     .social{
         width:1.25rem;
         vertical-align: middle;
-        padding:0.2rem;
-        transition: fill 0.3s;  
+        margin:0.2rem;
+        transition: fill 0.2s;  
     }
 
     .headersocial{
-        padding-left:0.4rem;
-        padding-right:0rem;
+        margin-left:0.4rem;
+        margin-right:0rem;
     }
 
     .social:hover, .social:focus{
@@ -269,7 +273,7 @@ hr{
     }
 
     #leftcolumn .social:hover, #leftcolumn .social:focus, #rightcolumn .social:hover, #rightcolumn .social:focus{
-        fill: lightgray;
+        fill: black;
     }
 
     #contact .emaillink{
@@ -279,7 +283,7 @@ hr{
     }
 
     #contact .emaillink:hover, #contact .emaillink:focus, .inlinelink:hover, .inlinelink:focus{
-        color:lightgray;
+        color:black;
     }
 
     a{
@@ -319,7 +323,7 @@ hr{
     }
 
     .emaillink:hover, .emaillink:focus{
-        color:lightgray;
+        color:black;
     }
 
     #leftcolumn .project{
@@ -333,7 +337,7 @@ hr{
     }
 
     #leftcolumn .project:hover, #leftcolumn .project:focus{
-        background-color: lightgray;
+        background-color: white;
     }
 
     /*RIGHT COLUMN*/
@@ -371,7 +375,7 @@ hr{
     }
 
     #rightcolumn #mc-embedded-subscribe:hover, #rightcolumn #mc-embedded-subscribe:focus{
-        background-color: lightgray;
+        background-color: white;
     }
 
     #rightcolumn #mc_embed_signup_scroll{
@@ -386,9 +390,98 @@ hr{
         margin-bottom: 1vw;
     }
 
+    .cursor-circle{
+        display:none;
+    }
+    .button:hover, .button:focus{
+        background-color: lightgray;
+    }
+
+    #leftcolumn .social:hover, #leftcolumn .social:focus, #rightcolumn .social:hover, #rightcolumn .social:focus{
+        fill: lightgray;
+    }
+
+    #contact .emaillink:hover, #contact .emaillink:focus, .inlinelink:hover, .inlinelink:focus{
+        color:lightgray;
+    }
+
+    .emaillink:hover, .emaillink:focus{
+        color:lightgray;
+    }
+
+    #leftcolumn .project:hover, #leftcolumn .project:focus{
+        background-color: lightgray;
+    }
+
+    #rightcolumn #mc-embedded-subscribe:hover, #rightcolumn #mc-embedded-subscribe:focus{
+        background-color: lightgray;
+    }
+
 
 /* DESKTOP */
 @media only screen and (min-width: 768px){
+
+    .button:hover, .button:focus{
+        background-color: white;
+    }
+
+    .ALA-project-button:hover, .ALA-project-button:focus{
+        background-color: white;
+    }
+
+    .social:hover, .social:focus{
+        fill:black;
+    }
+
+    #leftcolumn .social:hover, #leftcolumn .social:focus, #rightcolumn .social:hover, #rightcolumn .social:focus{
+        fill: black;
+    }
+
+    #contact .emaillink:hover, #contact .emaillink:focus, .inlinelink:hover, .inlinelink:focus{
+        color:black;
+    }
+
+    .emaillink:hover, .emaillink:focus{
+        color:black;
+    }
+
+    #leftcolumn .project:hover, #leftcolumn .project:focus{
+        background-color: white;
+    }
+
+    #rightcolumn #mc-embedded-subscribe:hover, #rightcolumn #mc-embedded-subscribe:focus{
+        background-color: white;
+    }
+
+    body{
+        cursor:none;
+    }
+
+    a{
+        cursor:none;
+    }
+
+    input, label{
+        cursor:none;
+    }
+
+
+    .cursor-circle{
+        position:fixed;
+        height:40px;
+        width:40px;
+        background-color: white;
+        border-radius: 100%;
+        top:-20px;
+        left:-20px;
+        z-index: 999;
+        pointer-events:none;
+
+        /* border: white 3px solid; */
+
+        mix-blend-mode: difference;
+        /* cursor:none; */
+    }
 
     .ALA-project-poster{
         max-height: 40rem;
@@ -444,13 +537,13 @@ hr{
     }
     .social{
         width:1.5rem;
-        padding:0.35rem;
+        margin:0.35rem;
         transition: fill 0.3s;  
     }
 
     .headersocial{
-        padding-left:0.7rem;
-        padding-right:0rem;
+        margin-left:0.7rem;
+        margin-right:0rem;
     }
     .socialbreak{
         display:none;

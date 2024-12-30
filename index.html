@@ -34,6 +34,207 @@
         </script>
 
         <script>
+            var cursorSetup = false;
+            function setupCursor(){
+                
+                const circleElement = document.querySelector('.cursor-circle');
+
+                const circleSize = $(circleElement).width();
+
+                var iframeHovered = false;
+
+                var currentWidth = 0;
+                var currentHeight = 0;
+
+                var hoveredLink = null;
+                var targetWidth = circleSize;
+                var targetHeight = circleSize;
+
+                const circleGrowSpeed = 0.5;
+
+                const hoverExcess = 20;
+
+                const mouse = { x: 0, y: 0 }; // mouse pointer's coordinates
+                const previousMouse = { x: 0, y: 0 }; // previous mouse pointer's coordinates
+                const pos = { x: 0, y: 0 }; // cursor's coordinates
+
+                const speed = .7; // between 0 and 1
+                const hoverSpeed = 0.2;
+
+                const accelerationSpeed = 0.1;
+                const growAccelerationSpeed = 0.6;
+
+                var targetSpeed = speed;
+
+                let currentSpeed = speed;
+
+                let currentScale = 0;
+
+                var angleCorrection = 0;
+
+                var currentAngleCorrection = 0;
+
+                const angleCorrectionSpeed = 0.1;
+
+                window.addEventListener('mouseover', (event) => {
+                    if (event.target.tagName == 'IFRAME' ){
+                        iframeHovered = true;
+                    }else{
+                        iframeHovered = false;
+                    }
+                });
+
+                window.addEventListener('mousemove', (event) => {
+                    hoveredLink = null;
+                    var hoveredElements = $(':hover').map(function() {
+                        return $(this);
+                    });
+
+                    for (var i = 0; i < hoveredElements.length; i++){
+                        var hoveredElement = hoveredElements[i];
+                        
+                        if(hoveredElement.prop("tagName") == 'LABEL'){
+                            break;
+                        }
+
+                        if (!hoveredElement.attr('class')?.split(/\s+/).includes('cursor-circle-ignore') && (hoveredElement.prop("tagName") == 'A' || hoveredElement.prop("tagName") == 'INPUT' || hoveredElement.prop("tagName") == 'SELECT')) {
+                            hoveredLink = hoveredElement;
+                            break;
+                        }
+                    }
+                    
+                    if (hoveredLink != null) {
+                        targetSpeed = hoverSpeed;
+                        var childLeftMin = Infinity;
+                        var childTopMin = Infinity;
+                        var childRightMax = 0;
+                        var childBottomMax = 0;
+
+                        if (hoveredLink.children().length == 0 || hoveredLink.prop("tagName") != 'A') {
+                            childLeftMin = hoveredLink.offset().left;
+                            childTopMin = hoveredLink.offset().top;
+                            childRightMax = childLeftMin + hoveredLink.outerWidth();
+                            childBottomMax = childTopMin + hoveredLink.outerHeight();
+                        }else{
+                            for (var i = 0; i < hoveredLink.children().length; i++){
+                                var child = hoveredLink.children()[i];
+                                var childLeft = $(child).offset().left;
+                                var childTop = $(child).offset().top;
+                                var childRight = childLeft + $(child).outerWidth();
+                                var childBottom = childTop + $(child).outerHeight();
+
+                                if (childLeft < childLeftMin) {
+                                    childLeftMin = childLeft;
+                                }
+                                if (childTop < childTopMin) {
+                                    childTopMin = childTop;
+                                }
+                                if (childRight > childRightMax) {
+                                    childRightMax = childRight;
+                                }
+                                if (childBottom > childBottomMax) {
+                                    childBottomMax = childBottom;
+                                }
+                            }
+                        }
+
+                        // console.log("Child left: " + childLeftMin);
+                        // console.log("Child right: " + childRightMax);
+                        // console.log("Child top: " + childTopMin);
+                        // console.log("Child bottom: " + childBottomMax);
+
+                        // var maxDiff = Math.max(hoverExcess + (childRightMax - childLeftMin), hoverExcess + (childBottomMax - childTopMin));
+
+                        targetWidth = hoverExcess  + (childRightMax - childLeftMin);
+                        targetHeight = hoverExcess + (childBottomMax - childTopMin);
+
+                        mouse.x = childLeftMin - $(document).scrollLeft() + (childRightMax - childLeftMin) / 2;
+                        mouse.y = childTopMin - $(document).scrollTop() + (childBottomMax - childTopMin) / 2;
+
+                        circleElement.style.borderRadius = "10px";
+                        angleCorrection = 0;
+                    }else{
+                        targetSpeed = speed;
+                        targetWidth = circleSize;
+                        targetHeight = circleSize;
+                        angleCorrection = 1;
+                        circleElement.style.borderRadius = "100%";
+                        mouse.x = event.x;
+                        mouse.y = event.y;
+                    }
+                });
+
+                const updateCoordinates = () => {
+                    if(window.innerWidth < 768 || iframeHovered == true){
+                        circleElement.style.display = 'none';
+                        window.requestAnimationFrame(updateCoordinates);
+                        return
+                    }
+                    circleElement.style.display = 'block';
+                    var widthChange = (targetWidth - currentWidth) * currentSpeed;
+                    var heightChange = (targetHeight - currentHeight) * currentSpeed;
+
+                    if (widthChange < 0) {
+                        currentSpeed += (targetSpeed - currentSpeed) * accelerationSpeed;
+                    }else{
+                        currentSpeed += (targetSpeed - currentSpeed) * growAccelerationSpeed;
+                    }
+
+                    pos.x += (mouse.x - pos.x) * currentSpeed;
+                    pos.y += (mouse.y - pos.y) * currentSpeed;
+
+                    const circleTransform = `translate(${pos.x}px, ${pos.y}px)`;
+
+                    const mouseDeltaX = mouse.x - previousMouse.x;
+                    const mouseDeltaY = mouse.y - previousMouse.y;
+                    previousMouse.x = mouse.x;
+                    previousMouse.y = mouse.y;
+
+                    const mouseVelocity = Math.min(Math.sqrt(mouseDeltaX * mouseDeltaX + mouseDeltaY * mouseDeltaY) * 4,150);
+                    
+                    const scaleAmount = (mouseVelocity / 150) * 0.5;
+
+                    currentScale += (scaleAmount - currentScale) * currentSpeed;
+
+                    const circleScale = `scale(${1+currentScale}, ${1-currentScale})`;
+
+                    currentAngleCorrection += (angleCorrection - currentAngleCorrection) * angleCorrectionSpeed;
+
+                    var widthChange = (targetWidth - currentWidth) * currentSpeed;
+                    var heightChange = (targetHeight - currentHeight) * currentSpeed;
+
+                    if(widthChange > 0){
+                        currentWidth += ((1 - (currentAngleCorrection - angleCorrection)) * (targetWidth - currentWidth)) * circleGrowSpeed;
+                    }else{
+                        currentWidth += widthChange;
+                    }
+
+                    if (heightChange > 0) {
+                        currentHeight += ((1 - (currentAngleCorrection - angleCorrection)) * (targetHeight - currentHeight)) * circleGrowSpeed;
+                    }else{
+                        currentHeight += heightChange;
+                    }
+                    
+                    
+                    var angle = Math.atan2(mouseDeltaY, mouseDeltaX) * 180 / Math.PI;
+                    
+                    const circleRotation = `rotate(${angle * currentAngleCorrection}deg)`;
+
+                    circleElement.style.transform = `${circleTransform} ${circleRotation} ${circleScale}`;
+
+                    circleElement.style.width = currentWidth + 'px';
+                    circleElement.style.height = currentHeight + 'px';
+                    circleElement.style.top = currentHeight / -2 + 'px';
+                    circleElement.style.left = currentWidth / -2 + 'px';
+
+                    window.requestAnimationFrame(updateCoordinates);
+                };
+
+                circleElement.style.display = 'block';
+
+                updateCoordinates();
+                cursorSetup = true;
+            }
 
             function setHeightsEqual(elementName, containerName=null, containerPadding=0){
 
@@ -109,7 +310,10 @@
             $(document).ready(function() {
                 adjustCarouselTitleHeights();
                 setFadeDelays();
-                
+
+                if(window.innerWidth >= 768){
+                    setupCursor();
+                }
                 // console.log(max);
             });
             
@@ -123,6 +327,10 @@
             $(window).on("resize", function() {
                 adjustCarouselTitleHeights();
                 // console.log(max);
+
+                if(window.innerWidth >= 768 && !cursorSetup){
+                    setupCursor();
+                }
             });
         </script>
 
@@ -149,6 +357,8 @@
     </head>
 
     <body>
+       
+        <div class="cursor-circle"></div>
         <div id="header">
             <div class="row">
                 <div class="column"><p id="logo" style="display: flex; align-items: center; justify-content: center;">Jonah Newton<span id="location">Pipeline Technical Director<br/>Sydney, Australia</span></p></div>
@@ -331,7 +541,7 @@
                     <div id="leftPageBg">
                         <div class="center_container">
                             <div class="center_inner">
-                                <a href="https://group7.io" target="_blank"><p id="logo" data-tilt>Group7</p></a>
+                                <a href="https://group7.io" class="cursor-circle-ignore" target="_blank"><p id="logo" data-tilt>Group7</p></a>
                             </div>
                             <hr style="margin-top: 1rem; margin-bottom: 1rem;"/>
                             
@@ -367,7 +577,7 @@
                     <div id="rightPageBg">
                         <div class="center_container">
                             <div class="center_inner">
-                                <a href="https://kestro.co" target="_blank">
+                                <a href="https://kestro.co" class="cursor-circle-ignore" target="_blank">
                                 <p id="logo" data-tilt>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="250"  viewBox="0 0 2229 501">
                                         <defs>
