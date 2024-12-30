@@ -133,6 +133,12 @@ hr{
     overflow: hidden;
 }
 
+#ALA-work-info{
+    opacity: 0;
+    animation: pageopenfade 0.75s;
+    animation-fill-mode: forwards;
+}
+
 #ALA-logo{
     display:flex;
     margin:2rem auto 0 auto;
@@ -154,11 +160,23 @@ hr{
     margin-bottom: 20px;
 }
 
+@keyframes pageopenfade {
+    0%{opacity: 0;}
+    100%{opacity: 100;}
+}
+
 .ALA-project-poster{
     max-height: 40rem;
     height:60vw;
     max-width:40vw;
+    opacity: 0;
 }
+
+.fadein{
+    animation: pageopenfade 0.5s;
+    animation-fill-mode: forwards;
+}
+
 
 .ALA-project-button-container{
     margin-top:1rem;
