@@ -169,7 +169,7 @@ hr{
     max-height: 40rem;
     height:60vw;
     max-width:40vw;
-    opacity: 0;
+    /* opacity: 0; */
 }
 
 .fadein{
@@ -399,6 +399,7 @@ hr{
     .alaCarouselSlide{
         /* max-width: calc(20vw - 2em); */
         max-width: 20vw;
+        opacity:0;
     }
 
     #ALA-logo img{
