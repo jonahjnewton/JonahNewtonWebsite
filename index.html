@@ -43,12 +43,17 @@
 
                 var iframeHovered = false;
 
+                var previousHovering = false;
+
                 var currentWidth = 0;
                 var currentHeight = 0;
 
                 var hoveredLink = null;
                 var targetWidth = circleSize;
                 var targetHeight = circleSize;
+
+                var childLeftMin = Infinity;
+                var childRightMax = 0;
 
                 const circleGrowSpeed = 0.5;
 
@@ -70,9 +75,9 @@
 
                 let currentScale = 0;
 
-                var angleCorrection = 0;
+                var angleCorrection = 1;
 
-                var currentAngleCorrection = 0;
+                var currentAngleCorrection = 1;
 
                 const angleCorrectionSpeed = 0.1;
 
@@ -105,9 +110,9 @@
                     
                     if (hoveredLink != null) {
                         targetSpeed = hoverSpeed;
-                        var childLeftMin = Infinity;
+                        childLeftMin = Infinity;
                         var childTopMin = Infinity;
-                        var childRightMax = 0;
+                        childRightMax = 0;
                         var childBottomMax = 0;
 
                         if (hoveredLink.children().length == 0 || hoveredLink.prop("tagName") != 'A') {
@@ -214,9 +219,27 @@
                     }else{
                         currentHeight += heightChange;
                     }
-                    
-                    
+
                     var angle = Math.atan2(mouseDeltaY, mouseDeltaX) * 180 / Math.PI;
+
+                    if(previousHovering && hoveredLink == null){
+                        // Mouse exiting through top or bottom
+                        if(mouse.x >= childLeftMin && mouse.x <= childRightMax){
+                            // currentAngleCorrection += (1 - currentAngleCorrection) * 0.1;
+                            currentAngleCorrection = 0;
+                            // console.log("Mouse exiting through top or bottom");
+                        } else if(mouse.x < childLeftMin) {
+                            // console.log("Mouse exiting through left");
+                            angle = 0;
+                            currentAngleCorrection = 1;
+                        }
+                        else{
+                            // console.log("Mouse exiting through right");
+                            
+                        }
+                    }
+
+                    // console.log(currentAngleCorrection);
                     
                     const circleRotation = `rotate(${angle * currentAngleCorrection}deg)`;
 
@@ -226,6 +249,8 @@
                     circleElement.style.height = currentHeight + 'px';
                     circleElement.style.top = currentHeight / -2 + 'px';
                     circleElement.style.left = currentWidth / -2 + 'px';
+
+                    previousHovering = hoveredLink != null;
 
                     window.requestAnimationFrame(updateCoordinates);
                 };
