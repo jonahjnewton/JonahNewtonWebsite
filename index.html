@@ -45,14 +45,14 @@
             function iframeLoaded(){
                 iframesLoaded += 1;
 
-                updateLoadingProgress();
+                window.requestAnimationFrame(updateLoadingProgress);
                 // console.log("Iframe loaded. Progress: " + loadingProgress);
             }
 
             function imageLoaded(){
                 imagesLoaded += 1;
 
-                updateLoadingProgress();
+                window.requestAnimationFrame(updateLoadingProgress);
                 // console.log("Image loaded. Progress: " + loadingProgress);
             }
 
