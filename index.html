@@ -35,6 +35,35 @@
 
         <script>
             var cursorSetup = false;
+            
+            var loadingProgress = 0;
+            var iframesLoaded = 0;
+            var totalIframes = 0;
+            var imagesLoaded = 0;
+            var totalImages = 0;
+
+            function iframeLoaded(){
+                iframesLoaded += 1;
+
+                updateLoadingProgress();
+                // console.log("Iframe loaded. Progress: " + loadingProgress);
+            }
+
+            function imageLoaded(){
+                imagesLoaded += 1;
+
+                updateLoadingProgress();
+                // console.log("Image loaded. Progress: " + loadingProgress);
+            }
+
+            function updateLoadingProgress(){
+                var loadingText = $("#loading-text");
+                const loadingBar = $("#loading-bar");
+                loadingProgress = ((iframesLoaded + imagesLoaded) / (totalIframes + totalImages)) * 100;
+                loadingText.text("" + Math.round(loadingProgress) + "%");
+                loadingBar.width(loadingProgress + '%');
+            }
+
             function setupCursor(){
                 
                 const circleElement = document.querySelector('.cursor-circle');
@@ -315,7 +344,20 @@
 
             function setFadeDelays(){
                 // console.log("Setting fade delays");
-                var posters = $(".alaCarouselSlide").map(function() {
+
+                const loadOverlayFadeTime = 0.5;
+                const loadOverlayFadeDelay = 0.1;
+
+                var loadingOverlay = $("#loading-overlay");
+
+                loadingOverlay.css('animation', `loadingoverlayfadeout ${loadOverlayFadeTime}s forwards`);
+
+                setTimeout(function(){
+                    loadingOverlay.css('display', 'none');
+                }, loadOverlayFadeTime * 1000);
+
+                setTimeout(function(){
+                    var posters = $(".alaCarouselSlide").map(function() {
                     return $(this);
                 });
 
@@ -325,6 +367,12 @@
                     poster.addClass('fadein');
                     // console.log("Setting delay to " + i*0.5 + 's');
                 }
+
+                var alaWorkInfo = $("#ALA-work-info");
+
+                alaWorkInfo.css('animation', "pageopenfade 0.75s forwards");
+                }, loadOverlayFadeDelay * 1000);
+                
             }
             
             function adjustCarouselTitleHeights(){
@@ -332,9 +380,60 @@
                 setHeightsEqual('.pipelineWorkCarouselSlide > h2');
             }
 
+            function setupLoadingBarProgressElements(){
+                // const loadingElementsToCheck = ["#header", "#ALA-logo",".ALA-project-poster", ".pipelineWorkCarouselSlide", "#logo", "#mc-embedded-subscribe", '.emaillink'];
+
+                const loadingText = $("#loading-text");
+                
+                var progress = 0;
+
+                totalIframes = $('iframe').length;
+
+                totalImages = $('img').length;
+
+                for (var i = 0; i < totalIframes; i++){
+                    var iframe = $('iframe')[i];
+                    iframe.onload = iframeLoaded;
+                }
+
+                for (var i = 0; i < totalImages; i++){
+                    var image = $('img')[i];
+                    if(image.complete || image.naturalWidth != 0){
+                        imageLoaded();
+                    }else{
+                        image.onload = imageLoaded;
+                    }
+                }
+
+                // Use this to check if elements in the loadingElementsToCheck array have loaded. Not using right now.
+                function updateProgress(){
+                    var loaded = 0
+                    for (var i = 0; i < loadingElementsToCheck.length; i++){
+                        var element = $(loadingElementsToCheck[i]);
+                        if (element.length > 0){
+                            console.log("Element loaded: " + loadingElementsToCheck[i]);
+                            loaded += 1;
+                        }
+                    }
+                    progress = (loaded / loadingElementsToCheck.length) * 100;
+
+                    loadingText.text("" + Math.round(progress) + "%");
+
+                    if (progress >= 100){
+                        return;
+                    }
+
+                    setTimeout(function(){
+                        updateProgress();
+                    }, 200);
+                }
+
+                // updateProgress();
+            }
+
             $(document).ready(function() {
+                setupLoadingBarProgressElements();
                 adjustCarouselTitleHeights();
-                setFadeDelays();
 
                 if(window.innerWidth >= 768){
                     setupCursor();
@@ -344,6 +443,7 @@
             
             $(window).on("load", function() {
                 adjustCarouselTitleHeights();
+                setFadeDelays();
                 
                 
                 // console.log(max);
@@ -382,7 +482,7 @@
     </head>
 
     <body>
-       
+        <div id="loading-overlay"><div id="loading-container"><div id="loading-bar"></div><span id="loading-text">0%</span></div></div>
         <div class="cursor-circle"></div>
         <div id="header">
             <div class="row">
