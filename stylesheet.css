@@ -8,6 +8,10 @@ body{
     height:100%;
 }
 
+:root{
+    --loading-progress: 0%;
+}
+
 /* MOBILE */
 
 #loading-overlay{
@@ -38,7 +42,7 @@ body{
 }
 
 #loading-bar{
-    width: 50%;
+    width: var(--loading-progress);
     height: 100%;
     border-radius: 7px;
     background-color: black;

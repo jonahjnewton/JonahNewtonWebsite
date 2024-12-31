@@ -35,6 +35,8 @@
 
         <script>
             var cursorSetup = false;
+
+            var r = document.querySelector(':root');
             
             var loadingProgress = 0;
             var iframesLoaded = 0;
@@ -61,7 +63,7 @@
                 const loadingBar = $("#loading-bar");
                 loadingProgress = ((iframesLoaded + imagesLoaded) / (totalIframes + totalImages)) * 100;
                 loadingText.text("" + Math.round(loadingProgress) + "%");
-                loadingBar.width(loadingProgress + '%');
+                r.style.setProperty('--loading-progress', loadingProgress + '%');
             }
 
             function setupCursor(){
