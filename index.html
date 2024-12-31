@@ -121,6 +121,7 @@
                 });
 
                 window.addEventListener('mousemove', (event) => {
+                    function updateMouse(){
                     hoveredLink = null;
                     var hoveredElements = $(':hover').map(function() {
                         return $(this);
@@ -139,65 +140,68 @@
                         }
                     }
                     
-                    if (hoveredLink != null) {
-                        targetSpeed = hoverSpeed;
-                        childLeftMin = Infinity;
-                        var childTopMin = Infinity;
-                        childRightMax = 0;
-                        var childBottomMax = 0;
+                    
+                        if (hoveredLink != null) {
+                            targetSpeed = hoverSpeed;
+                            childLeftMin = Infinity;
+                            var childTopMin = Infinity;
+                            childRightMax = 0;
+                            var childBottomMax = 0;
 
-                        if (hoveredLink.children().length == 0 || hoveredLink.prop("tagName") != 'A') {
-                            childLeftMin = hoveredLink.offset().left;
-                            childTopMin = hoveredLink.offset().top;
-                            childRightMax = childLeftMin + hoveredLink.outerWidth();
-                            childBottomMax = childTopMin + hoveredLink.outerHeight();
-                        }else{
-                            for (var i = 0; i < hoveredLink.children().length; i++){
-                                var child = hoveredLink.children()[i];
-                                var childLeft = $(child).offset().left;
-                                var childTop = $(child).offset().top;
-                                var childRight = childLeft + $(child).outerWidth();
-                                var childBottom = childTop + $(child).outerHeight();
+                            if (hoveredLink.children().length == 0 || hoveredLink.prop("tagName") != 'A') {
+                                childLeftMin = hoveredLink.offset().left;
+                                childTopMin = hoveredLink.offset().top;
+                                childRightMax = childLeftMin + hoveredLink.outerWidth();
+                                childBottomMax = childTopMin + hoveredLink.outerHeight();
+                            }else{
+                                for (var i = 0; i < hoveredLink.children().length; i++){
+                                    var child = hoveredLink.children()[i];
+                                    var childLeft = $(child).offset().left;
+                                    var childTop = $(child).offset().top;
+                                    var childRight = childLeft + $(child).outerWidth();
+                                    var childBottom = childTop + $(child).outerHeight();
 
-                                if (childLeft < childLeftMin) {
-                                    childLeftMin = childLeft;
-                                }
-                                if (childTop < childTopMin) {
-                                    childTopMin = childTop;
-                                }
-                                if (childRight > childRightMax) {
-                                    childRightMax = childRight;
-                                }
-                                if (childBottom > childBottomMax) {
-                                    childBottomMax = childBottom;
+                                    if (childLeft < childLeftMin) {
+                                        childLeftMin = childLeft;
+                                    }
+                                    if (childTop < childTopMin) {
+                                        childTopMin = childTop;
+                                    }
+                                    if (childRight > childRightMax) {
+                                        childRightMax = childRight;
+                                    }
+                                    if (childBottom > childBottomMax) {
+                                        childBottomMax = childBottom;
+                                    }
                                 }
                             }
+
+                            // console.log("Child left: " + childLeftMin);
+                            // console.log("Child right: " + childRightMax);
+                            // console.log("Child top: " + childTopMin);
+                            // console.log("Child bottom: " + childBottomMax);
+
+                            // var maxDiff = Math.max(hoverExcess + (childRightMax - childLeftMin), hoverExcess + (childBottomMax - childTopMin));
+
+                            targetWidth = hoverExcess  + (childRightMax - childLeftMin);
+                            targetHeight = hoverExcess + (childBottomMax - childTopMin);
+
+                            mouse.x = childLeftMin - $(document).scrollLeft() + (childRightMax - childLeftMin) / 2;
+                            mouse.y = childTopMin - $(document).scrollTop() + (childBottomMax - childTopMin) / 2;
+
+                            circleElement.style.borderRadius = "10px";
+                            angleCorrection = 0;
+                        }else{
+                            targetSpeed = speed;
+                            targetWidth = circleSize;
+                            targetHeight = circleSize;
+                            angleCorrection = 1;
+                            circleElement.style.borderRadius = "100%";
+                            mouse.x = event.x;
+                            mouse.y = event.y;
                         }
-
-                        // console.log("Child left: " + childLeftMin);
-                        // console.log("Child right: " + childRightMax);
-                        // console.log("Child top: " + childTopMin);
-                        // console.log("Child bottom: " + childBottomMax);
-
-                        // var maxDiff = Math.max(hoverExcess + (childRightMax - childLeftMin), hoverExcess + (childBottomMax - childTopMin));
-
-                        targetWidth = hoverExcess  + (childRightMax - childLeftMin);
-                        targetHeight = hoverExcess + (childBottomMax - childTopMin);
-
-                        mouse.x = childLeftMin - $(document).scrollLeft() + (childRightMax - childLeftMin) / 2;
-                        mouse.y = childTopMin - $(document).scrollTop() + (childBottomMax - childTopMin) / 2;
-
-                        circleElement.style.borderRadius = "10px";
-                        angleCorrection = 0;
-                    }else{
-                        targetSpeed = speed;
-                        targetWidth = circleSize;
-                        targetHeight = circleSize;
-                        angleCorrection = 1;
-                        circleElement.style.borderRadius = "100%";
-                        mouse.x = event.x;
-                        mouse.y = event.y;
                     }
+                    window.requestAnimationFrame(updateMouse);
                 });
 
                 const updateCoordinates = () => {
