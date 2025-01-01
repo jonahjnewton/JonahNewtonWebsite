@@ -437,9 +437,17 @@
                 // updateProgress();
             }
 
+            function setFooterYear(){
+                var date = new Date();
+                var year = date.getFullYear();
+                $("#footer").text("© Jonah Newton " + year);
+            }
+
             $(document).ready(function() {
                 setupLoadingBarProgressElements();
                 adjustCarouselTitleHeights();
+
+                setFooterYear();
 
                 if(window.innerWidth >= 768){
                     setupCursor();
@@ -855,7 +863,7 @@
         </div>
 
         <div id="footer" style="text-align: center; padding-bottom:1rem;">
-            © Jonah Newton 2024
+            © Jonah Newton
         </div>
 
         <script src="js/tilt.js-master/src/tilt.jquery.js"></script>
