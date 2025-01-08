@@ -61,7 +61,7 @@
             function updateLoadingProgress(){
                 var loadingText = $("#loading-text");
                 const loadingBar = $("#loading-bar");
-                loadingProgress = ((iframesLoaded + imagesLoaded) / (totalIframes + totalImages)) * 100;
+                loadingProgress = Math.min(((iframesLoaded + imagesLoaded) / (totalIframes + totalImages)) * 100, 100);
                 loadingText.text("" + Math.round(loadingProgress) + "%");
                 r.style.setProperty('--loading-progress', loadingProgress + '%');
             }
@@ -421,7 +421,7 @@
                             loaded += 1;
                         }
                     }
-                    progress = (loaded / loadingElementsToCheck.length) * 100;
+                    progress = Math.min((loaded / loadingElementsToCheck.length) * 100,100);
 
                     loadingText.text("" + Math.round(progress) + "%");
 
