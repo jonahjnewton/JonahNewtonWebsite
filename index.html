@@ -443,11 +443,54 @@
                 $("#footer").text("© " + year + " Jonah Newton");
             }
 
+            function detectColorScheme(){
+                var theme="light";    //default to light
+
+                //local storage is used to override OS theme settings
+                if(localStorage.getItem("theme")){
+                    if(localStorage.getItem("theme") == "dark"){
+                        var theme = "dark";
+                    }
+                } else if(!window.matchMedia) {
+                    //matchMedia method not supported
+                    return false;
+                } else if(window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                    //OS theme setting detected as dark
+                    var theme = "dark";
+                }
+
+                const toggleSwitch = document.querySelector('#theme-switch');
+
+                //dark theme preferred, set document with a `data-theme` attribute
+                if (theme=="dark") {
+                    document.documentElement.setAttribute("data-theme", "dark");
+                }else{
+                    document.documentElement.setAttribute("data-theme", "light");
+                }
+
+                //function that changes the theme, and sets a localStorage variable to track the theme between page loads
+                function switchTheme(e) {
+                    currentTheme = document.documentElement.getAttribute("data-theme");
+
+                    if(currentTheme == "light"){
+                        localStorage.setItem('theme', 'dark');
+                        document.documentElement.setAttribute('data-theme', 'dark');
+                    }else{
+                        localStorage.setItem('theme', 'light');
+                        document.documentElement.setAttribute('data-theme', 'light');
+                    }
+                }
+
+                //listener for changing themes
+                $(toggleSwitch).on('click', switchTheme);
+            }
+
             $(document).ready(function() {
                 setupLoadingBarProgressElements();
                 adjustCarouselTitleHeights();
 
                 setFooterYear();
+                detectColorScheme();
 
                 if(window.innerWidth >= 768){
                     setupCursor();
@@ -496,9 +539,10 @@
     </head>
 
     <body>
-        <div id="loading-overlay"><div id="loading-container"><div id="loading-bar"></div><span id="loading-text">0%</span></div></div>
+        <div id="loading-overlay" ><div id="loading-container" class="invert-dark"><div id="loading-bar"></div><span id="loading-text">0%</span></div></div>
         <div class="cursor-circle"></div>
-        <div id="header">
+        <a id="theme-switch"><div id="theme-switch-icon"></div></a>
+        <div id="header" class="invert-dark">
             <div class="row">
                 <div class="column"><p id="logo" style="display: flex; align-items: center; justify-content: center;">Jonah Newton<span id="location">Pipeline Technical Director<br/>Sydney, Australia</span></p></div>
                     <div class="column" class="hide-on-mobile">
@@ -548,15 +592,15 @@
                 </div>
             </div>
         </div>
-        <div class="separator-container">
+        <div class="separator-container invert-dark">
             <hr class="separator">
         </div>
         <div id="work">
-            <div id="ALA-work-info">
+            <div id="ALA-work-info" class="invert-dark">
             <a href="https://animallogicacademy.uts.edu.au" target="_blank" id="ALA-logo">
                 <img src="images/UTS-Black.png" alt="University of Technology, Sydney logo"/> <img src="images/AL_logo_Black.png" style="margin-left:1rem" alt="Animal Logic logo"/>
             </a>
-            <hr style="margin-top: 1rem; margin-bottom: 1rem; color:black;"/>
+            <hr style="margin-top: 1rem; margin-bottom: 1rem; color:black;" class="invert-dark"/>
                             
             <div style="color:black; text-align: center; font-family: Acherus Grotesque Regular, sans-serif; margin-bottom: 2em;">
                 <small>Pipeline Technical Director<br/>2022 - Present</small>
@@ -565,7 +609,7 @@
 
             <div class="row carousel alaCarousel">
                 <div class="column carouselSlide alaCarouselSlide">
-                    <div class="ALA-project-info">
+                    <div class="ALA-project-info invert-dark">
                         <h2 class="ALA-project-title">Fool's Gold</h2>
                         <small>Short Film | Unreleased</small>
                     </div>
@@ -575,106 +619,106 @@
                     
                 </div>
                 <div class="column carouselSlide alaCarouselSlide">
-                    <div class="ALA-project-info">
+                    <div class="ALA-project-info invert-dark">
                         <h2 class="ALA-project-title">SK8-bit</h2>
                         <small>Short Film | 2024</small>
                     </div>
                     <div class="ala-poster-container">
                         <img src="images/sk8bit-poster.jpg" alt="SK8-bit Poster" class="ALA-project-poster"/>
-                        <a href="https://www.youtube.com/watch?v=CtvFzXUBT7I" target="_blank" class="ALA-project-button-container" ><div class="ALA-project-button">Watch</div></a>
+                        <a href="https://www.youtube.com/watch?v=CtvFzXUBT7I" target="_blank" class="ALA-project-button-container invert-dark" ><div class="ALA-project-button">Watch</div></a>
                     </div>
                 </div>
                 <div class="column carouselSlide alaCarouselSlide">
-                    <div class="ALA-project-info">
+                    <div class="ALA-project-info invert-dark">
                         <h2 class="ALA-project-title">Alone</h2>
                         <small>Short Film | 2024</small>
                     </div>
                     <div class="ala-poster-container">
                         <img src="images/alone-poster.jpg" alt="Alone Poster" class="ALA-project-poster"/>
-                        <a href="https://www.youtube.com/watch?v=6vqREp6mFKs" target="_blank" class="ALA-project-button-container" ><div class="ALA-project-button">Watch</div></a>
+                        <a href="https://www.youtube.com/watch?v=6vqREp6mFKs" target="_blank" class="ALA-project-button-container invert-dark" ><div class="ALA-project-button">Watch</div></a>
                     </div>
                 </div>
                 <div class="column carouselSlide alaCarouselSlide">
-                    <div class="ALA-project-info">
+                    <div class="ALA-project-info invert-dark">
                         <h2 class="ALA-project-title">Coffee Brake</h2>
                         <small>Short Film | 2023</small>
                     </div>
                     <div class="ala-poster-container">
                         <img src="images/coffeebrake-poster.jpg" alt="Coffee Brake Poster" class="ALA-project-poster"/>
-                        <a href="https://www.youtube.com/watch?v=T57aCLYdX9M" target="_blank" class="ALA-project-button-container" ><div class="ALA-project-button">Watch</div></a>
+                        <a href="https://www.youtube.com/watch?v=T57aCLYdX9M" target="_blank" class="ALA-project-button-container invert-dark" ><div class="ALA-project-button">Watch</div></a>
                     </div>
                 </div>
                 <div class="column carouselSlide alaCarouselSlide">
-                    <div class="ALA-project-info">
+                    <div class="ALA-project-info invert-dark">
                         <h2 class="ALA-project-title">Corrupted</h2>
                         <small>Short Film | 2023</small>
                     </div>
                     <div class="ala-poster-container">
                         <img src="images/corrupted-poster.jpg" alt="Corrupted Poster" class="ALA-project-poster"/>
-                        <a href="https://www.youtube.com/watch?v=1EM9pC-nYhA" target="_blank" class="ALA-project-button-container" ><div class="ALA-project-button">Watch</div></a>
+                        <a href="https://www.youtube.com/watch?v=1EM9pC-nYhA" target="_blank" class="ALA-project-button-container invert-dark" ><div class="ALA-project-button">Watch</div></a>
                     </div>
                 </div>
                 <div class="column carouselSlide alaCarouselSlide">
-                    <div class="ALA-project-info">
+                    <div class="ALA-project-info invert-dark">
                         <h2 class="ALA-project-title">Robo Ramen</h2>
                         <small>Short Film | 2022</small>
                     </div>
                     <div class="ala-poster-container">
                         <img src="images/roboramen-poster.jpg" alt="Robo Ramen Poster" class="ALA-project-poster"/>
-                        <a href="https://www.youtube.com/watch?v=20T3x7Y9n-Y" target="_blank" class="ALA-project-button-container" ><div class="ALA-project-button">Watch</div></a>
+                        <a href="https://www.youtube.com/watch?v=20T3x7Y9n-Y" target="_blank" class="ALA-project-button-container" ><div class="ALA-project-button invert-dark">Watch</div></a>
                     </div>
                 </div>
             </div>
 
-            <div class="separator-container">
+            <div class="separator-container invert-dark">
                 <hr class="separator">
             </div>
-            <h1 style="margin-bottom: 1em;">Pipeline Work</h1>
+            <h1 style="margin-bottom: 1em;" class="invert-dark">Pipeline Work</h1>
             <div class="row">
                 <div class="column">
                     <div class="carousel pipelineWorkCarousel">
                         <div class="carouselSlide pipelineWorkCarouselSlide" >
-                            <h2>Flow PTR-Friendly Nuke Bridge</h2>
+                            <h2 class="invert-dark">Flow PTR-Friendly Nuke Bridge</h2>
                             <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7191302097349365760" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
                         </div>
                         <div class="carouselSlide pipelineWorkCarouselSlide" >
-                            <h2>USD Rig Exporting</h2>
+                            <h2 class="invert-dark">USD Rig Exporting</h2>
                             <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7224262670667931649" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
                         </div>
                         <div class="carouselSlide pipelineWorkCarouselSlide" >
-                            <h2>Mari Flow PTR Integration</h2>
+                            <h2 class="invert-dark">Mari Flow PTR Integration</h2>
                             <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7173526210705051648" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
                         </div>
                         
                         <div class="carouselSlide pipelineWorkCarouselSlide" >
-                            <h2>Python 3 Pipeline Updates</h2>
+                            <h2 class="invert-dark">Python 3 Pipeline Updates</h2>
                             <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7171340362152697856" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
                         </div>
                         
                         <div class="carouselSlide pipelineWorkCarouselSlide" >
-                            <h2>Look Dev Workflows</h2>
+                            <h2 class="invert-dark">Look Dev Workflows</h2>
                             <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7178239332850282497" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
                         </div>
                         <div class="carouselSlide pipelineWorkCarouselSlide" >
-                            <h2>Render Optimisation</h2>
+                            <h2 class="invert-dark">Render Optimisation</h2>
                             <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7134857473252884480" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
                         </div>
                         <div class="carouselSlide pipelineWorkCarouselSlide" >
-                            <h2>Patch Rendering</h2>
+                            <h2 class="invert-dark">Patch Rendering</h2>
                             <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7238681688246042626" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
                         </div>
                         <div class="carouselSlide pipelineWorkCarouselSlide" >
-                            <h2>Asset Resolve Caching</h2>
+                            <h2 class="invert-dark">Asset Resolve Caching</h2>
                             <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7132244688715018240" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
                         </div>
                     </div>
-                    <h3><a href="https://linktr.ee/jonahjnewton" target="_blank" class="inlinelink">Press & More</a></h3>
+                    <h3><a href="https://linktr.ee/jonahjnewton" target="_blank" class="inlinelink invert-dark">Press & More</a></h3>
                 </div>
             </div>
-            <div class="separator-container">
+            <div class="separator-container invert-dark">
                 <hr class="separator">
             </div>
-            <h1 style="margin-bottom: 1em;">Personal Projects</h1>
+            <h1 style="margin-bottom: 1em;" class="invert-dark">Personal Projects</h1>
             <div class="row">
                 <div class="column" id="leftcolumn">
                     <div id="leftPageBg">
@@ -816,10 +860,10 @@
                 </div>
             </div>
         </div>
-        <div class="separator-container">
+        <div class="separator-container invert-dark">
             <hr class="separator">
         </div>
-        <div id="contact">
+        <div id="contact" class="invert-dark">
             <h1>Contact Me</h1>
             <div style="color:white; text-align: center; padding-top:1em; margin-bottom: 1em;"><a class="emaillink" href="mailto:jonah@jonahnewton.com.au">jonah@jonahnewton.com.au</a></div>
             <div id="socials" style="margin-bottom:3em;">
@@ -862,7 +906,7 @@
             </div>
         </div>
 
-        <div id="footer" style="text-align: center; padding-bottom:1rem;">
+        <div id="footer" style="text-align: center; padding-bottom:1rem;" class="invert-dark">
             © Jonah Newton
         </div>
 
