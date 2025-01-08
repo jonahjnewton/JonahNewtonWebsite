@@ -1,7 +1,10 @@
 :root{
     --loading-progress: 0%;
     --bg-color: white;
+    --bg-color-rgb: 255,255,255;
+    --button-color: lightgray;
     --reverse-color: #080808;
+    --reverse-color-rgb: 8,8,8;
     --theme-switch-icon: url('images/darkmode.svg');
 }
 
@@ -12,7 +15,10 @@ html{
 
 [data-theme="dark"] {
     --bg-color: #080808;
+    --bg-color-rgb: 8,8,8;
+    --button-color: dimgray;
     --reverse-color: white;
+    --reverse-color-rgb: 255,255,255;
     --theme-switch-icon: url('images/lightmode.svg');
     
     .invert-dark{
@@ -24,6 +30,8 @@ body{
     font-family: Acherus Grotesque Regular, sans-serif; 
     margin:0; 
     height:100%;
+    color:var(--reverse-color);
+    fill:var(--reverse-color)
 }
 
 #theme-switch{
@@ -39,6 +47,7 @@ body{
     display:flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 #theme-switch-icon{
@@ -67,11 +76,11 @@ body{
     width: 150px;
     height: 50px;
     border-radius: 10px;
-    border: black 2px solid;
+    border: var(--reverse-color) 2px solid;
     /* display:flex;
     justify-content: center; */
     align-items: center;
-    background:white;
+    background:var(--bg-color);
     /* mix-blend-mode: difference; */
     animation: pageopenfade 0.5s;
     /* animation-fill-mode: forwards; */
@@ -82,7 +91,7 @@ body{
     transform: translate(-1%, -1%);
     height: 102%;
     border-radius: 7px;
-    background-color: black;
+    background-color: var(--reverse-color);
     transition: width 0.3s;
     /* animation: loadingoverlayfadeout 1s;
     animation-fill-mode: forwards; */
@@ -188,7 +197,7 @@ h1, h2, h3{
 
 .inlinelink{
     text-decoration: underline;
-    color: black;
+    color: var(--reverse-color);
     transition: color 0.3s;
     text-decoration-thickness: 2px;
     text-underline-offset: 2px;
@@ -201,7 +210,7 @@ hr{
     margin-top:2em; 
     margin-bottom:2em;
     width:30%;
-    color: white;
+    color: var(--bg-color);
 }
 
 .separator-container{
@@ -217,9 +226,9 @@ hr{
     margin-right:0;
     width:120%;
     height:25px;
-    color:rgba(0, 0, 0, 0);
-    background-color: rgba(0, 0, 0, 0);
-    box-shadow: 0 12px 6px -6px rgba(0, 0, 0, 0.25); 
+    color:var(--reverse-color);
+    background-color: var(--reverse-color);
+    box-shadow: 0 12px 6px -6px rgba(var(--reverse-color-rgb),0.3); 
     z-index: -1;
     overflow: hidden;
 }
@@ -278,8 +287,8 @@ hr{
 
 .ALA-project-button{
     text-align: center;
-    background-color: lightgray;
-    color:black;
+    background-color: var(--button-color);
+    color:var(--reverse-color);
     margin-bottom: 1em;
     padding:1em 2em;
     transition: background-color 0.3s;
@@ -346,7 +355,7 @@ hr{
         width:1.25rem;
         vertical-align: middle;
         margin:0.2rem;
-        transition: fill 0.2s;  
+        /* transition: fill 0.2s;   */
     }
 
     .headersocial{
@@ -360,6 +369,7 @@ hr{
 
     #leftcolumn .social, #rightcolumn .social{
         fill: white;
+        transition: fill 0.2s;
     }
 
     #leftcolumn .social:hover, #leftcolumn .social:focus, #rightcolumn .social:hover, #rightcolumn .social:focus{
@@ -368,12 +378,12 @@ hr{
 
     #contact .emaillink{
         text-decoration: none;
-        color:black;
+        color:var(--reverse-color);
         transition: color 0.3s;
     }
 
     #contact .emaillink:hover, #contact .emaillink:focus, .inlinelink:hover, .inlinelink:focus{
-        color:black;
+        color:var(--reverse-color);
     }
 
     a{
@@ -408,12 +418,22 @@ hr{
 
     .emaillink{
         text-decoration: none;
+        color:var(--bg-color);
+        transition: color 0.3s;
+    }
+
+    .project-emaillink{
+        text-decoration: none;
         color:white;
         transition: color 0.3s;
     }
 
-    .emaillink:hover, .emaillink:focus{
+    .project-emaillink:hover, .project-emaillink:focus{
         color:black;
+    }
+
+    .emaillink:hover, .emaillink:focus{
+        color:var(--reverse-color);
     }
 
     #leftcolumn .project{
@@ -489,9 +509,14 @@ hr{
 
     #leftcolumn .social:hover, #leftcolumn .social:focus, #rightcolumn .social:hover, #rightcolumn .social:focus{
         fill: lightgray;
+        transition: fill 0.2s;
     }
 
     #contact .emaillink:hover, #contact .emaillink:focus, .inlinelink:hover, .inlinelink:focus{
+        color:lightgray;
+    }
+
+    .project-emaillink:hover, .project-emaillink:focus{
         color:lightgray;
     }
 
@@ -516,23 +541,27 @@ hr{
     }
 
     .ALA-project-button:hover, .ALA-project-button:focus{
-        background-color: white;
+        background-color: var(--bg-color);
     }
 
     .social:hover, .social:focus{
-        fill:black;
+        fill:var(--reverse-color);
     }
 
     #leftcolumn .social:hover, #leftcolumn .social:focus, #rightcolumn .social:hover, #rightcolumn .social:focus{
-        fill: black;
+        fill: var(--reverse-color);
     }
 
     #contact .emaillink:hover, #contact .emaillink:focus, .inlinelink:hover, .inlinelink:focus{
+        color:var(--reverse-color);
+    }
+
+    .project-emaillink:hover, .project-emaillink:focus{
         color:black;
     }
 
     .emaillink:hover, .emaillink:focus{
-        color:black;
+        color:var(--reverse-color);
     }
 
     #leftcolumn .project:hover, #leftcolumn .project:focus{
@@ -555,7 +584,10 @@ hr{
         cursor:none;
     }
 
-
+    #theme-switch{
+        cursor: none;
+    }
+    
     .cursor-circle{
         position:fixed;
         height:40px;
@@ -616,7 +648,7 @@ hr{
     #location{
         margin-left: 1rem; 
         padding-left: 1rem;
-        border-left: 1px solid black;
+        border-left: 1px solid var(--reverse-color);
         font-size: 0.7rem;
     }
 
@@ -627,7 +659,7 @@ hr{
     .social{
         width:1.5rem;
         margin:0.35rem;
-        transition: fill 0.3s;  
+        /* transition: fill 0.3s;   */
     }
 
     .headersocial{
