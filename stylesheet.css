@@ -3,8 +3,8 @@
     --bg-color: white;
     --bg-color-rgb: 255,255,255;
     --button-color: lightgray;
-    --reverse-color: #080808;
-    --reverse-color-rgb: 8,8,8;
+    --reverse-color: #121212;
+    --reverse-color-rgb: 18,18,18;
     --theme-switch-icon: url('images/darkmode.svg');
 }
 
@@ -14,8 +14,8 @@ html{
 }
 
 [data-theme="dark"] {
-    --bg-color: #080808;
-    --bg-color-rgb: 8,8,8;
+    --bg-color: #121212;
+    --bg-color-rgb: 18,18,18;
     --button-color: dimgray;
     --reverse-color: white;
     --reverse-color-rgb: 255,255,255;
