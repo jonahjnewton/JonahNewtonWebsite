@@ -292,12 +292,28 @@ hr{
         font-size: 0.7rem; 
     }
 
-    #header #socials{
+    #header-links{
         position: absolute;
         top: 50%;
         right:5%;
         transform: translateY(-50%);
+        display:flex;
+        justify-content: center;
+        align-items: center;
 
+    }
+
+    #header-links > span,#header-links > div{
+        display: inline-block
+    }
+
+    #header-links > span{
+        margin-right:0.5rem;
+    }
+
+    #header-links > span > a{
+        text-decoration: none;
+        color: var(--reverse-color);
     }
 
     .social{
@@ -331,7 +347,7 @@ hr{
         text-decoration: none;
     }
 
-    #contact #socials{
+    #contact .socials{
         text-align: center;
     }
 
