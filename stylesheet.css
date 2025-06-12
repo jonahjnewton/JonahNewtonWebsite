@@ -207,7 +207,7 @@ hr{
     overflow: hidden;
 }
 
-#ALA-work-info{
+#ALA-work-info, #FB-work-info{
     opacity: 0;
 }
 
@@ -219,9 +219,23 @@ hr{
     width: fit-content;
 }
 
+#FB-logo{
+    display:flex;
+    margin:2rem auto 0 auto;
+    max-height: 9rem;
+    max-width: 100%;
+    width: fit-content;
+}
+
 #ALA-logo img{
     max-height: 6rem;
     height:13vw;
+    z-index: 999;
+}
+
+#FB-logo img{
+    max-height: 9rem;
+    height:20vw;
     z-index: 999;
 }
 
@@ -441,6 +455,12 @@ hr{
     #ALA-logo img{
         max-height: 6rem;
         height:9vw;
+        z-index: 999;
+    }
+
+    #FB-logo img{
+        max-height: 9rem;
+        height:15vw;
         z-index: 999;
     }
 
