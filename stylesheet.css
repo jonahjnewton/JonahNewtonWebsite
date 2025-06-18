@@ -196,19 +196,20 @@ h1, h2, h3{
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    width: 450px;
-}
-
-.project-placeholder{
-    opacity: 0;
+    width: 300px;
+    font-size: small;
 }
 
 hr{
     border-top: 1px; 
     margin-top:2em; 
     margin-bottom:2em;
-    width:450px;
+    width:300px;
     color: var(--bg-color);
+}
+
+.project-placeholder{
+    opacity: 0;
 }
 
 .separator-container{
@@ -486,6 +487,15 @@ hr{
         max-height: 9rem;
         height:15vw;
         z-index: 999;
+    }
+
+    .position-wrapper{
+        width: 450px;
+        font-size: medium;
+    }
+
+    hr{
+        width:450px;
     }
 
     .hide-on-mobile{
