@@ -368,8 +368,11 @@
                 var alaWorkInfo = $("#ALA-work-info");
                 var fbWorkInfo = $("#FB-work-info");
 
+                var projectPlaceholder = $(".project-placeholder");
+
                 alaWorkInfo.css('animation', "pageopenfade 0.75s forwards");
                 fbWorkInfo.css('animation', "pageopenfade 0.75s forwards");
+                projectPlaceholder.css('animation', "pageopenfade 0.75s forwards");
                 }, loadOverlayFadeDelay * 1000);
                 
             }
@@ -587,7 +590,7 @@
                     <small>Pipeline Technical Director<br/>May 2025 - Present</small>
                 </div>
             </div>
-            <h3 style="margin-bottom: 2em;">Projects In Progress<br/><span style="font-size:1.75rem;">🤫</span></h3>
+            <h3 class="project-placeholder" style="margin-bottom: 2em;">Projects In Progress<br/><span style="font-size:1.75rem;">🤫</span></h3>
             <div class="separator-container">
                 <hr class="separator">
             </div>
