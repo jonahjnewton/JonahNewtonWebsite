@@ -117,15 +117,22 @@ body{
 .carousel{
     /* max-height:30em; */
     width:calc(100vw - 2em);
-    display: flex;
-    flex-direction: row;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     padding: 0 1em;
 }
 
-.carousel > .carouselSlide{
+.carouselContainer{
+    width:fit-content;
+    display: flex;
+    margin-left:auto;
+    margin-right:auto;
+    /* justify-content: center; */
+    flex-direction: row;
+}
+
+.carouselContainer > .carouselSlide{
     flex-shrink: 0;
     transform-origin: center center;
     transform: scale(1);
@@ -138,7 +145,7 @@ body{
     height:30em;
 }
 
-.alaCarouselSlide{
+.carouselSlide{
     /* max-width: calc(20vw - 2em); */
     max-width: 40vw;
     opacity:0;
@@ -146,7 +153,7 @@ body{
     flex-direction: column;
 }
 
-.ala-poster-container{
+.poster-container{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -161,7 +168,7 @@ body{
     max-width: calc(75vw - 2em);
 }
 
-.ALA-project-info > h2{
+.project-info > h2{
     margin-bottom: 0;
 }
 
@@ -232,7 +239,7 @@ hr{
     overflow: hidden;
 }
 
-#ALA-work-info, #FB-work-info{
+.work-info{
     opacity: 0;
 }
 
@@ -240,6 +247,14 @@ hr{
     display:flex;
     margin:2rem auto 0 auto;
     max-height: 6rem;
+    max-width: 100%;
+    width: fit-content;
+}
+
+#AL-logo{
+    display:flex;
+    margin:2rem auto 0 auto;
+    max-height: 7rem;
     max-width: 100%;
     width: fit-content;
 }
@@ -257,6 +272,11 @@ hr{
     height:13vw;
     z-index: 999;
 }
+#AL-logo img{
+    max-height: 7rem;
+    height:15vw;
+    z-index: 999;
+}
 
 #FB-logo img{
     max-height: 9rem;
@@ -264,7 +284,7 @@ hr{
     z-index: 999;
 }
 
-.ALA-project-info{
+.project-info{
     text-align: center;
     display:flex;
     flex-direction: column;
@@ -281,7 +301,7 @@ hr{
     100%{opacity: 0;}
 }
 
-.ALA-project-poster{
+.project-poster{
     max-height: 40rem;
     height:60vw;
     max-width:40vw;
@@ -294,11 +314,11 @@ hr{
 }
 
 
-.ALA-project-button-container{
+.project-button-container{
     margin-top:1rem;
 }
 
-.ALA-project-button{
+.project-button{
     text-align: center;
     background-color: var(--button-color);
     color:var(--reverse-color);
@@ -307,7 +327,7 @@ hr{
     transition: background-color 0.3s;
 }
 
-.ALA-project-button:hover, .ALA-project-button:focus{
+.project-button:hover, .project-button:focus{
     background-color: gray;
 }
 
@@ -417,7 +437,7 @@ hr{
 @media only screen and (min-width: 768px){
 
 
-    .ALA-project-button:hover, .ALA-project-button:focus{
+    .project-button:hover, .project-button:focus{
         background-color: var(--bg-color);
     }
 
@@ -466,13 +486,13 @@ hr{
         /* cursor:none; */
     }
 
-    .ALA-project-poster{
+    .project-poster{
         max-height: 40rem;
         height:25vw;
         max-width:20vw;
     }
 
-    .alaCarouselSlide{
+    .carouselSlide{
         /* max-width: calc(20vw - 2em); */
         max-width: 20vw;
     }
@@ -480,6 +500,12 @@ hr{
     #ALA-logo img{
         max-height: 6rem;
         height:9vw;
+        z-index: 999;
+    }
+
+    #AL-logo img{
+        max-height: 7rem;
+        height:11.5vw;
         z-index: 999;
     }
 

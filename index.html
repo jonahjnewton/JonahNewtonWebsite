@@ -354,36 +354,42 @@
                 }, loadOverlayFadeTime * 1000);
 
                 setTimeout(function(){
-                    var posters = $(".alaCarouselSlide").map(function() {
-                    return $(this);
-                });
+                    var alaPosters = $(".alaCarouselSlide").map(function() {
+                        return $(this);
+                    });
+                    for (var i = 0; i < alaPosters.length; i++){
+                        var poster = alaPosters[i];
+                        poster.css('animation-delay', i*0.05 + 's');
+                        poster.addClass('fadein');
+                        // console.log("Setting delay to " + i*0.5 + 's');
+                    }
 
-                for (var i = 0; i < posters.length; i++){
-                    var poster = posters[i];
-                    poster.css('animation-delay', i*0.05 + 's');
-                    poster.addClass('fadein');
-                    // console.log("Setting delay to " + i*0.5 + 's');
-                }
+                    var alPosters = $(".alCarouselSlide").map(function() {
+                        return $(this);
+                    });
+                    for (var i = 0; i < alPosters.length; i++){
+                        var poster = alPosters[i];
+                        poster.css('animation-delay', i*0.05 + 's');
+                        poster.addClass('fadein');
+                        // console.log("Setting delay to " + i*0.5 + 's');
+                    }
 
-                var alaWorkInfo = $("#ALA-work-info");
-                var fbWorkInfo = $("#FB-work-info");
+                    var workInfo = $(".work-info");
+                    var projectPlaceholder = $(".project-placeholder");
 
-                var projectPlaceholder = $(".project-placeholder");
-
-                alaWorkInfo.css('animation', "pageopenfade 0.75s forwards");
-                fbWorkInfo.css('animation', "pageopenfade 0.75s forwards");
-                projectPlaceholder.css('animation', "pageopenfade 0.75s forwards");
+                    workInfo.css('animation', "pageopenfade 0.75s forwards");
+                    projectPlaceholder.css('animation', "pageopenfade 0.75s forwards");
                 }, loadOverlayFadeDelay * 1000);
                 
             }
             
             function adjustCarouselTitleHeights(){
                 setHeightsEqual('.ALA-project-info');
+                setHeightsEqual('.AL-project-info');
                 setHeightsEqual('.pipelineWorkCarouselSlide > h2');
             }
 
             function setupLoadingBarProgressElements(){
-                // const loadingElementsToCheck = ["#header", "#ALA-logo",".ALA-project-poster", ".pipelineWorkCarouselSlide", "#logo", "#mc-embedded-subscribe", '.emaillink'];
 
                 const loadingText = $("#loading-text");
                 
@@ -498,7 +504,6 @@
                 adjustCarouselTitleHeights();
                 setFadeDelays();
                 
-                
                 // console.log(max);
             });
             
@@ -580,7 +585,7 @@
             <hr class="separator">
         </div>
         <div id="work">
-            <div id="FB-work-info">
+            <div class="work-info">
                 <a href="https://www.flyingbark.com.au" target="_blank" id="FB-logo" class="invert-dark">
                     <img src="images/flying-bark-logo-black.png" alt="Flying Bark Productions logo"/> 
                 </a>
@@ -594,7 +599,7 @@
             <div class="separator-container">
                 <hr class="separator">
             </div>
-            <div id="ALA-work-info">
+            <div class="work-info">
                 <a href="https://animallogicacademy.uts.edu.au" target="_blank" id="ALA-logo" class="invert-dark">
                     <img src="images/UTS-Black.png" alt="University of Technology, Sydney logo"/> <img src="images/AL_logo_Black.png" style="margin-left:1rem" alt="Animal Logic logo"/>
                 </a>
@@ -611,84 +616,128 @@
                 </div>
             </div>
 
-            <div class="row carousel alaCarousel">
-                <div class="column carouselSlide alaCarouselSlide">
-                    <div class="ALA-project-info">
-                        <h2 class="ALA-project-title">Occupational Hazard</h2>
-                        <small><b>Short Film | 2025</b></small>
-                        <small>Pipeline Technical Director</small>
+            <div class="carousel">
+                <div class="carouselContainer">
+                    <div class="column carouselSlide alaCarouselSlide">
+                        <div class="ALA-project-info project-info">
+                            <h2 class="project-title">Occupational Hazard</h2>
+                            <small><b>Short Film | 2025</b></small>
+                            <small>Pipeline Technical Director</small>
+                        </div>
+                        <div class="poster-container">
+                            <img src="images/occupational-hazard-still.jpg" alt="Occupational Hazard Still Frame" class="project-poster"/>
+                            <a href="https://www.youtube.com/watch?v=RbY8P5AxrI8" target="_blank" class="project-button-container" ><div class="project-button">Watch</div></a>
+                        </div>
+                        
                     </div>
-                    <div class="ala-poster-container">
-                        <img src="images/occupational-hazard-still.jpg" alt="Occupational Hazard Still Frame" class="ALA-project-poster"/>
-                        <a href="https://www.youtube.com/watch?v=RbY8P5AxrI8" target="_blank" class="ALA-project-button-container" ><div class="ALA-project-button">Watch</div></a>
+                    <div class="column carouselSlide alaCarouselSlide">
+                        <div class="ALA-project-info project-info">
+                            <h2 class="project-title">Fool's Gold</h2>
+                            <small><b>Short Film | 2025</b></small>
+                            <small>Pipeline Technical Director</small>
+                        </div>
+                        <div class="poster-container">
+                            <img src="images/foolsgold-poster.jpg" alt="Fool's Gold Poster" class="project-poster"/>
+                            <a href="https://www.youtube.com/watch?v=3tqwXk1W0eg" target="_blank" class="project-button-container" ><div class="project-button">Watch</div></a>
+                        </div>
+                        
                     </div>
-                    
+                    <div class="column carouselSlide alaCarouselSlide">
+                        <div class="ALA-project-info project-info">
+                            <h2 class="project-title">SK8-bit</h2>
+                            <small><b>Short Film | 2024</b></small>
+                            <small>Pipeline Technical Director</small>
+                        </div>
+                        <div class="poster-container">
+                            <img src="images/sk8bit-poster.jpg" alt="SK8-bit Poster" class="project-poster"/>
+                            <a href="https://www.youtube.com/watch?v=CtvFzXUBT7I" target="_blank" class="project-button-container" ><div class="project-button">Watch</div></a>
+                        </div>
+                    </div>
+                    <div class="column carouselSlide alaCarouselSlide">
+                        <div class="ALA-project-info project-info">
+                            <h2 class="project-title">Alone</h2>
+                            <small><b>Short Film | 2024</b></small>
+                            <small>Pipeline Technical Director</small>
+                        </div>
+                        <div class="poster-container">
+                            <img src="images/alone-poster.jpg" alt="Alone Poster" class="project-poster"/>
+                            <a href="https://www.youtube.com/watch?v=6vqREp6mFKs" target="_blank" class="project-button-container" ><div class="project-button">Watch</div></a>
+                        </div>
+                    </div>
+                    <div class="column carouselSlide alaCarouselSlide">
+                        <div class="ALA-project-info project-info">
+                            <h2 class="project-title">Coffee Brake</h2>
+                            <small><b>Short Film | 2023</b></small>
+                            <small>Pipeline Technical Director</small>
+                        </div>
+                        <div class="poster-container">
+                            <img src="images/coffeebrake-poster.jpg" alt="Coffee Brake Poster" class="project-poster"/>
+                            <a href="https://www.youtube.com/watch?v=T57aCLYdX9M" target="_blank" class="project-button-container" ><div class="project-button">Watch</div></a>
+                        </div>
+                    </div>
+                    <div class="column carouselSlide alaCarouselSlide">
+                        <div class="ALA-project-info project-info">
+                            <h2 class="project-title">Corrupted</h2>
+                            <small><b>Short Film | 2023</b></small>
+                            <small>Junior Pipeline Technical Director</small>
+                        </div>
+                        <div class="poster-container">
+                            <img src="images/corrupted-poster.jpg" alt="Corrupted Poster" class="project-poster"/>
+                            <a href="https://www.youtube.com/watch?v=1EM9pC-nYhA" target="_blank" class="project-button-container" ><div class="project-button">Watch</div></a>
+                        </div>
+                    </div>
+                    <div class="column carouselSlide alaCarouselSlide">
+                        <div class="ALA-project-info project-info">
+                            <h2 class="project-title">Robo Ramen</h2>
+                            <small><b>Short Film | 2022</b></small>
+                            <small>Junior Pipeline Technical Director</small>
+                        </div>
+                        <div class="poster-container">
+                            <img src="images/roboramen-poster.jpg" alt="Robo Ramen Poster" class="project-poster"/>
+                            <a href="https://www.youtube.com/watch?v=20T3x7Y9n-Y" target="_blank" class="project-button-container" ><div class="project-button">Watch</div></a>
+                        </div>
+                    </div>
                 </div>
-                <div class="column carouselSlide alaCarouselSlide">
-                    <div class="ALA-project-info">
-                        <h2 class="ALA-project-title">Fool's Gold</h2>
-                        <small><b>Short Film | 2025</b></small>
-                        <small>Pipeline Technical Director</small>
-                    </div>
-                    <div class="ala-poster-container">
-                        <img src="images/foolsgold-poster.jpg" alt="Fool's Gold Poster" class="ALA-project-poster"/>
-                        <a href="https://www.youtube.com/watch?v=3tqwXk1W0eg" target="_blank" class="ALA-project-button-container" ><div class="ALA-project-button">Watch</div></a>
-                    </div>
-                    
+            </div>
+            
+            <div class="separator-container">
+                <hr class="separator">
+            </div>
+            <div class="work-info">
+                <a href="https://animallogic.com" target="_blank" id="AL-logo" class="invert-dark">
+                    <img src="images/AL_logo_Black.png" alt="Animal Logic logo"/>
+                </a>
+                <hr style="margin-top: 1rem; margin-bottom: 1rem; color:var(--reverse-color);"/>
+                <div class="position">
+                    <small>IT Support Assistant<br/>February 2022 - April 2022</small>
                 </div>
-                <div class="column carouselSlide alaCarouselSlide">
-                    <div class="ALA-project-info">
-                        <h2 class="ALA-project-title">SK8-bit</h2>
-                        <small><b>Short Film | 2024</b></small>
-                        <small>Pipeline Technical Director</small>
+            </div>
+
+            <div class="carousel">
+                <div class="carouselContainer">
+                    <div class="column carouselSlide alCarouselSlide">
+                        <div class="AL-project-info project-info">
+                            <h2 class="project-title">Leo</h2>
+                            <small><b>Feature Film | 2023</b></small>
+                            <small>IT Support Assistant (Uncredited)</small>
+                        </div>
+                        <div class="poster-container">
+                            <img src="images/leo-poster.jpg" alt="Leo Poster" class="project-poster"/>
+                            <a href="https://www.youtube.com/watch?v=G_AEL-Xo5l8" target="_blank" class="project-button-container" ><div class="project-button">Trailer</div></a>
+                        </div>
+                        
                     </div>
-                    <div class="ala-poster-container">
-                        <img src="images/sk8bit-poster.jpg" alt="SK8-bit Poster" class="ALA-project-poster"/>
-                        <a href="https://www.youtube.com/watch?v=CtvFzXUBT7I" target="_blank" class="ALA-project-button-container" ><div class="ALA-project-button">Watch</div></a>
-                    </div>
-                </div>
-                <div class="column carouselSlide alaCarouselSlide">
-                    <div class="ALA-project-info">
-                        <h2 class="ALA-project-title">Alone</h2>
-                        <small><b>Short Film | 2024</b></small>
-                        <small>Pipeline Technical Director</small>
-                    </div>
-                    <div class="ala-poster-container">
-                        <img src="images/alone-poster.jpg" alt="Alone Poster" class="ALA-project-poster"/>
-                        <a href="https://www.youtube.com/watch?v=6vqREp6mFKs" target="_blank" class="ALA-project-button-container" ><div class="ALA-project-button">Watch</div></a>
-                    </div>
-                </div>
-                <div class="column carouselSlide alaCarouselSlide">
-                    <div class="ALA-project-info">
-                        <h2 class="ALA-project-title">Coffee Brake</h2>
-                        <small><b>Short Film | 2023</b></small>
-                        <small>Pipeline Technical Director</small>
-                    </div>
-                    <div class="ala-poster-container">
-                        <img src="images/coffeebrake-poster.jpg" alt="Coffee Brake Poster" class="ALA-project-poster"/>
-                        <a href="https://www.youtube.com/watch?v=T57aCLYdX9M" target="_blank" class="ALA-project-button-container" ><div class="ALA-project-button">Watch</div></a>
-                    </div>
-                </div>
-                <div class="column carouselSlide alaCarouselSlide">
-                    <div class="ALA-project-info">
-                        <h2 class="ALA-project-title">Corrupted</h2>
-                        <small><b>Short Film | 2023</b></small>
-                        <small>Junior Pipeline Technical Director</small>
-                    </div>
-                    <div class="ala-poster-container">
-                        <img src="images/corrupted-poster.jpg" alt="Corrupted Poster" class="ALA-project-poster"/>
-                        <a href="https://www.youtube.com/watch?v=1EM9pC-nYhA" target="_blank" class="ALA-project-button-container" ><div class="ALA-project-button">Watch</div></a>
-                    </div>
-                </div>
-                <div class="column carouselSlide alaCarouselSlide">
-                    <div class="ALA-project-info">
-                        <h2 class="ALA-project-title">Robo Ramen</h2>
-                        <small><b>Short Film | 2022</b></small>
-                        <small>Junior Pipeline Technical Director</small>
-                    </div>
-                    <div class="ala-poster-container">
-                        <img src="images/roboramen-poster.jpg" alt="Robo Ramen Poster" class="ALA-project-poster"/>
-                        <a href="https://www.youtube.com/watch?v=20T3x7Y9n-Y" target="_blank" class="ALA-project-button-container" ><div class="ALA-project-button">Watch</div></a>
+                    <div class="column carouselSlide alCarouselSlide">
+                        <div class="AL-project-info project-info">
+                            <h2 class="project-title">The Magician's Elephant</h2>
+                            <small><b>Feature Film | 2023</b></small>
+                            <small>IT Support Assistant (Uncredited)</small>
+                        </div>
+                        <div class="poster-container">
+                            <img src="images/elephant-poster.jpg" alt="The Magician's Elephant Poster" class="project-poster"/>
+                            <a href="https://www.youtube.com/watch?v=JvNuYOR7b4w" target="_blank" class="project-button-container" ><div class="project-button">Trailer</div></a>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
