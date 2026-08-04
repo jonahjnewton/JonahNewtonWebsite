@@ -4,8 +4,6 @@
         <meta charset="utf-8">
         <title>Jonah J. Newton | Technical Director & Software Dev | Sydney, AU</title>
 
-        <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://www.linkedin.com blob:;">
-
         <meta name=”twitter:card” content="summary" /> 
         <meta name=”twitter:site” content="@jonahjnewton" /> 
         <meta name=”twitter:title” content="Jonah J. Newton | Technical Director & Software Dev | Sydney, AU" /> 
@@ -356,6 +354,16 @@
                 }, loadOverlayFadeTime * 1000);
 
                 setTimeout(function(){
+                    var fbPosters = $(".fbCarouselSlide").map(function() {
+                        return $(this);
+                    });
+                    for (var i = 0; i < fbPosters.length; i++){
+                        var poster = fbPosters[i];
+                        poster.css('animation-delay', i*0.05 + 's');
+                        poster.addClass('fadein');
+                        // console.log("Setting delay to " + i*0.5 + 's');
+                    }
+
                     var alaPosters = $(".alaCarouselSlide").map(function() {
                         return $(this);
                     });
@@ -371,6 +379,16 @@
                     });
                     for (var i = 0; i < alPosters.length; i++){
                         var poster = alPosters[i];
+                        poster.css('animation-delay', i*0.05 + 's');
+                        poster.addClass('fadein');
+                        // console.log("Setting delay to " + i*0.5 + 's');
+                    }
+
+                    var pipelineWorkSlides = $(".pipelineWorkCarouselSlide").map(function() {
+                        return $(this);
+                    });
+                    for (var i = 0; i < pipelineWorkSlides.length; i++){
+                        var poster = pipelineWorkSlides[i];
                         poster.css('animation-delay', i*0.05 + 's');
                         poster.addClass('fadein');
                         // console.log("Setting delay to " + i*0.5 + 's');
@@ -600,7 +618,7 @@
             </div>
             <div class="carousel">
                 <div class="carouselContainer">
-                    <div class="column carouselSlide alCarouselSlide">
+                    <div class="column carouselSlide fbCarouselSlide">
                         <div class="FB-project-info project-info">
                             <h2 class="project-title">Stranger Things: Tales from '85</h2>
                             <small><b>TV Series | 2026</b></small>
@@ -612,7 +630,7 @@
                         </div>
                         
                     </div>
-                    <div class="column carouselSlide alCarouselSlide">
+                    <div class="column carouselSlide fbCarouselSlide">
                         <div class="FB-project-info project-info">
                             <h2 class="project-title">Avatar Aang: The Last Airbender</h2>
                             <small><b>Feature Film | 2026</b></small>
@@ -776,69 +794,68 @@
                 <hr class="separator">
             </div>
             <h1 style="margin-bottom: 1em;">Pipeline Work</h1>
-            <div class="row">
-                <div class="column">
-                    <div class="carousel pipelineWorkCarousel">
-                        <div class="carouselSlide pipelineWorkCarouselSlide" >
-                            <h2>Fused SSIM MPS Kernel</h2>
-                            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7386171140123234304?collapsed=1" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-                        </div>
-                        <div class="carouselSlide pipelineWorkCarouselSlide" >
-                            <h2>Turret USD Server Optimisation</h2>
-                            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7302157848162013184?collapsed=1" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-                        </div>
-                        <div class="carouselSlide pipelineWorkCarouselSlide" >
-                            <h2>Rocky Linux 9 Pipeline Update</h2>
-                            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7299945201844858882?collapsed=1" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-                        </div>
-                        <div class="carouselSlide pipelineWorkCarouselSlide" >
-                            <h2>Turret USD AR 2.0</h2>
-                            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7289773451182030849?collapsed=1" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-                        </div>
-                        <div class="carouselSlide pipelineWorkCarouselSlide" >
-                            <h2>Flow PTR-Friendly Nuke Bridge</h2>
-                            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7191302097349365760?collapsed=1" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-                        </div>
-                        <div class="carouselSlide pipelineWorkCarouselSlide" >
-                            <h2>USD Rig Exporting</h2>
-                            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7224262670667931649?collapsed=1" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-                        </div>
-                        <div class="carouselSlide pipelineWorkCarouselSlide" >
-                            <h2>Mari Flow PTR Integration</h2>
-                            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7173526210705051648?collapsed=1" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-                        </div>
-                        <div class="carouselSlide pipelineWorkCarouselSlide" >
-                            <h2>Python 3 Pipeline Updates</h2>
-                            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7171340362152697856?collapsed=1" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-                        </div>
-                        
-                        <div class="carouselSlide pipelineWorkCarouselSlide" >
-                            <h2>Look Dev Workflows</h2>
-                            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7178239332850282497?collapsed=1" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-                        </div>
-                        <div class="carouselSlide pipelineWorkCarouselSlide" >
-                            <h2>RenderClean Utility Script</h2>
-                            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7292851942563688449?collapsed=1" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-                        </div>
-                        <div class="carouselSlide pipelineWorkCarouselSlide" >
-                            <h2>Patch Rendering</h2>
-                            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7238681688246042626?collapsed=1" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-                        </div>
-                        <div class="carouselSlide pipelineWorkCarouselSlide" >
-                            <h2>Render Optimisation</h2>
-                            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7134857473252884480?collapsed=1" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-                        </div>
-                        <div class="carouselSlide pipelineWorkCarouselSlide" >
-                            <h2>Asset Resolve Caching</h2>
-                            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7132244688715018240?collapsed=1" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-                        </div>
+            <div class="carousel">
+                <div class="carouselContainer">
+                    <div class="column carouselSlide pipelineWorkCarouselSlide" >
+                        <h2>Fused SSIM MPS Kernel</h2>
+                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7386171140123234304?collapsed=1" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
                     </div>
-                    <h3><a href="https://linktr.ee/jonahjnewton" target="_blank" class="inlinelink">Press & More</a></h3>
+                    <div class="column carouselSlide pipelineWorkCarouselSlide" >
+                        <h2>Turret USD Server Optimisation</h2>
+                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7302157848162013184?collapsed=1" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+                    </div>
+                    <div class="column carouselSlide pipelineWorkCarouselSlide" >
+                        <h2>Rocky Linux 9 Pipeline Update</h2>
+                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7299945201844858882?collapsed=1" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+                    </div>
+                    <div class="column carouselSlide pipelineWorkCarouselSlide" >
+                        <h2>Turret USD AR 2.0</h2>
+                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7289773451182030849?collapsed=1" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+                    </div>
+                    <div class="column carouselSlide pipelineWorkCarouselSlide" >
+                        <h2>Flow PTR-Friendly Nuke Bridge</h2>
+                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7191302097349365760?collapsed=1" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+                    </div>
+                    <div class="column carouselSlide pipelineWorkCarouselSlide" >
+                        <h2>USD Rig Exporting</h2>
+                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7224262670667931649?collapsed=1" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+                    </div>
+                    <div class="column carouselSlide pipelineWorkCarouselSlide" >
+                        <h2>Mari Flow PTR Integration</h2>
+                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7173526210705051648?collapsed=1" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+                    </div>
+                    <div class="column carouselSlide pipelineWorkCarouselSlide" >
+                        <h2>Python 3 Pipeline Updates</h2>
+                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7171340362152697856?collapsed=1" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+                    </div>
+                    
+                    <div class="column carouselSlide pipelineWorkCarouselSlide" >
+                        <h2>Look Dev Workflows</h2>
+                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7178239332850282497?collapsed=1" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+                    </div>
+                    <div class="column carouselSlide pipelineWorkCarouselSlide" >
+                        <h2>RenderClean Utility Script</h2>
+                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7292851942563688449?collapsed=1" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+                    </div>
+                    <div class="column carouselSlide pipelineWorkCarouselSlide" >
+                        <h2>Patch Rendering</h2>
+                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7238681688246042626?collapsed=1" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+                    </div>
+                    <div class="column carouselSlide pipelineWorkCarouselSlide" >
+                        <h2>Render Optimisation</h2>
+                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7134857473252884480?collapsed=1" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+                    </div>
+                    <div class="column carouselSlide pipelineWorkCarouselSlide" >
+                        <h2>Asset Resolve Caching</h2>
+                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7132244688715018240?collapsed=1" height="355" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+                    </div>
                 </div>
             </div>
+            <h3><a href="https://linktr.ee/jonahjnewton" target="_blank" class="inlinelink">Press & More</a></h3>
             <div class="separator-container">
                 <hr class="separator">
             </div>
+        </div>
         <div id="contact">
             <h1>Contact Me</h1>
             <div style="color:var(--bg-colour); text-align: center; padding-top:1em; margin-bottom: 1em;"><a class="emaillink" href="mailto:jonah@jonahnewton.com.au">jonah@jonahnewton.com.au</a></div>
