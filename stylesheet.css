@@ -327,106 +327,113 @@ hr{
     background-color: gray;
 }
 
-    #header .column{
-        
-        flex:33%;
-    }
+#header .column{
+    flex:33%;
+}
 
-    #header .row{
-        display:flex;
-        position: relative;
-    }
+#header .row{
+    display:flex;
+    position: relative;
+}
 
-    #header #logo{
-        text-align: center;
-        font-size:1em;
-        flex-direction: column;
-    }
+#header #logo{
+    text-align: center;
+    font-size:1em;
+    flex-direction: column;
+}
 
-    #location{
-        font-size: 0.7rem; 
-    }
+#location{
+    font-size: 0.7rem; 
+}
 
-    #header-links{
-        position: absolute;
-        top: 50%;
-        right:5%;
-        transform: translateY(-50%);
-        display:flex;
-        justify-content: center;
-        align-items: center;
+#header-links{
+    position: absolute;
+    top: 50%;
+    right:5%;
+    transform: translateY(-50%);
+    display:flex;
+    justify-content: center;
+    align-items: center;
 
-    }
+}
 
-    #header-links > span,#header-links > div{
-        display: inline-block
-    }
+#header-links > span,#header-links > div{
+    display: inline-block
+}
 
-    #header-links > span{
-        margin-right:0.5rem;
-    }
+#header-links > span{
+    margin-right:0.5rem;
+}
 
-    #header-links > span > a{
-        text-decoration: none;
-        color: var(--reverse-color);
-    }
+#header-links > span > a{
+    text-decoration: none;
+    color: var(--reverse-color);
+}
 
-    .social{
-        width:1.25rem;
-        vertical-align: middle;
-        margin:0.2rem;
-        /* transition: fill 0.2s;   */
-    }
+.social{
+    width:1.25rem;
+    vertical-align: middle;
+    margin:0.2rem;
+    /* transition: fill 0.2s;   */
+}
 
-    .headersocial{
-        margin-left:0.4rem;
-        margin-right:0rem;
-    }
+.headersocial{
+    margin-left:0.4rem;
+    margin-right:0rem;
+}
 
-    .social:hover, .social:focus{
-        fill: lightgray;
-    }
+.social:hover, .social:focus{
+    fill: lightgray;
+}
 
 
-    #contact .emaillink{
-        text-decoration: none;
-        color:var(--reverse-color);
-        transition: color 0.3s;
-    }
+#contact .emaillink{
+    text-decoration: none;
+    color:var(--reverse-color);
+    transition: color 0.3s;
+}
 
-    #contact .emaillink:hover, #contact .emaillink:focus, .inlinelink:hover, .inlinelink:focus{
-        color:var(--reverse-color);
-    }
+#contact .emaillink:hover, #contact .emaillink:focus, .inlinelink:hover, .inlinelink:focus{
+    color:var(--reverse-color);
+}
 
-    a{
-        text-decoration: none;
-    }
+a{
+    text-decoration: none;
+}
 
-    #contact .socials{
-        text-align: center;
-    }
+#contact .socials{
+    text-align: center;
+}
 
-    .emaillink{
-        text-decoration: none;
-        color:var(--bg-color);
-        transition: color 0.3s;
-    }
+.emaillink{
+    text-decoration: none;
+    color:var(--bg-color);
+    transition: color 0.3s;
+}
 
-    .emaillink:hover, .emaillink:focus{
-        color:var(--reverse-color);
-    }
+.emaillink:hover, .emaillink:focus{
+    color:var(--reverse-color);
+}
 
-    .cursor-circle{
-        display:none;
-    }
+.cursor-circle{
+    display:none;
+}
 
-    #contact .emaillink:hover, #contact .emaillink:focus, .inlinelink:hover, .inlinelink:focus{
-        color:lightgray;
-    }
+#contact .emaillink:hover, #contact .emaillink:focus, .inlinelink:hover, .inlinelink:focus{
+    color:lightgray;
+}
 
-    .emaillink:hover, .emaillink:focus{
-        color:lightgray;
-    }
+.emaillink:hover, .emaillink:focus{
+    color:lightgray;
+}
+
+.pipelineWorkCarouselSlide{
+    max-width: none;
+}
+
+.projectCarouselSlide{
+    flex: 50%;
+}
 
 
 /* DESKTOP */
