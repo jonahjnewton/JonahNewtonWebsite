@@ -160,10 +160,6 @@ body{
     flex-direction: column;
 }
 
-.pipelineWorkCarouselSlide{
-    max-width: calc(75vw - 2em);
-}
-
 .carouselSlide > iframe{
     max-width: calc(75vw - 2em);
 }
@@ -493,8 +489,11 @@ hr{
     }
 
     .carouselSlide{
-        /* max-width: calc(20vw - 2em); */
         max-width: 20vw;
+    }
+
+    .pipelineWorkCarouselSlide{
+        max-width: none;
     }
 
     #ALA-logo img{
@@ -529,7 +528,6 @@ hr{
     }
 
     .column{
-        flex:50%;
         position: relative;
     }
 
