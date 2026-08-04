@@ -116,11 +116,12 @@ body{
 
 .carousel{
     /* max-height:30em; */
-    width:calc(100vw - 2em);
+    width:calc(100vw - 3em);
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     padding: 0 1em;
+    padding-left: 2em;
 }
 
 .carouselContainer{
@@ -146,7 +147,6 @@ body{
 }
 
 .carouselSlide{
-    /* max-width: calc(20vw - 2em); */
     max-width: 40vw;
     opacity:0;
     display:flex;
@@ -158,10 +158,6 @@ body{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-}
-
-.carouselSlide > iframe{
-    max-width: calc(75vw - 2em);
 }
 
 .project-info > h2{
@@ -428,7 +424,11 @@ a{
 }
 
 .pipelineWorkCarouselSlide{
-    max-width: none;
+    max-width: calc(75vw - 3em);
+}
+
+.pipelineWorkCarouselSlide > iframe{
+    max-width: calc(75vw - 3em);
 }
 
 .projectCarouselSlide{
@@ -501,6 +501,16 @@ a{
 
     .pipelineWorkCarouselSlide{
         max-width: none;
+    }
+
+    .pipelineWorkCarouselSlide > iframe{
+        max-width: calc(75vw - 2em);
+    }
+
+    .carousel{
+        /* max-height:30em; */
+        width:calc(100vw - 2em);
+        padding-left: 1em;
     }
 
     #ALA-logo img{
