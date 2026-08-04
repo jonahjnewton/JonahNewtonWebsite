@@ -4,6 +4,8 @@
         <meta charset="utf-8">
         <title>Jonah J. Newton | Technical Director & Software Dev | Sydney, AU</title>
 
+        <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://www.linkedin.com;">
+
         <meta name=”twitter:card” content="summary" /> 
         <meta name=”twitter:site” content="@jonahjnewton" /> 
         <meta name=”twitter:title” content="Jonah J. Newton | Technical Director & Software Dev | Sydney, AU" /> 
@@ -384,6 +386,7 @@
             }
             
             function adjustCarouselTitleHeights(){
+                setHeightsEqual('.FB-project-info');
                 setHeightsEqual('.ALA-project-info');
                 setHeightsEqual('.AL-project-info');
                 setHeightsEqual('.pipelineWorkCarouselSlide > h2');
@@ -595,7 +598,34 @@
                     <small>Pipeline Technical Director<br/>May 2025 - Present</small>
                 </div>
             </div>
-            <h3 class="project-placeholder" style="margin-bottom: 2em;">Projects In Progress<br/><span style="font-size:1.75rem;">🤫</span></h3>
+            <div class="carousel">
+                <div class="carouselContainer">
+                    <div class="column carouselSlide alCarouselSlide">
+                        <div class="FB-project-info project-info">
+                            <h2 class="project-title">Stranger Things: Tales from '85</h2>
+                            <small><b>TV Series | 2026</b></small>
+                            <small>Pipeline Technical Director</small>
+                        </div>
+                        <div class="poster-container">
+                            <img src="images/tales-85-poster.jpg" alt="Stranger Things: Tales from '85 Poster" class="project-poster"/>
+                            <a href="https://www.youtube.com/watch?v=kajCUhg36R0" target="_blank" class="project-button-container" ><div class="project-button">Trailer</div></a>
+                        </div>
+                        
+                    </div>
+                    <div class="column carouselSlide alCarouselSlide">
+                        <div class="FB-project-info project-info">
+                            <h2 class="project-title">Avatar Aang: The Last Airbender</h2>
+                            <small><b>Feature Film | 2026</b></small>
+                            <small>Pipeline Technical Director (Uncredited)</small>
+                        </div>
+                        <div class="poster-container">
+                            <img src="images/aang-poster.jpg" alt="Avatar Aang: The Last Airbender Poster" class="project-poster"/>
+                            <a href="https://www.youtube.com/watch?v=7b20GRFZBFE" target="_blank" class="project-button-container" ><div class="project-button">Trailer</div></a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
             <div class="separator-container">
                 <hr class="separator">
             </div>
